@@ -1,0 +1,642 @@
+# GPT PROJECT CONTEXT
+
+You are assisting with the following software/robotics project. Use the provided project files and dataset information as the primary source of truth.
+
+Do not invent files, functionality, configurations, dataset properties, or implementation details that are not supported by the extracted project context.
+
+When proposing code changes, preserve the existing architecture unless there is a clear reason to modify it.
+
+## PROJECT ROOT
+
+C:\Users\rishi\RishiProjects\Autonomous_Laser_Weed_Removal\Autonomous-laser-weed-removal\scripts
+
+
+## GIT INFORMATION
+
+Branch: main
+Commit: 0f763dd
+
+
+
+[Prepared YOLO dataset not found]
+
+
+
+## PROJECT FILES
+
+
+## FILE: evaluate_detector.py
+
+```python
+from __future__ import annotations
+
+import argparse
+
+from ultralytics import YOLO
+
+
+def main():
+    p = argparse.ArgumentParser()
+    p.add_argument("--weights", required=True)
+    p.add_argument("--data", required=True)
+    p.add_argument("--device", default="0")
+    p.add_argument("--imgsz", type=int, default=640)
+    args = p.parse_args()
+
+    model = YOLO(args.weights)
+    metrics = model.val(
+        data=args.data,
+        imgsz=args.imgsz,
+        device=args.device,
+        plots=True,
+        verbose=True,
+    )
+
+    print("\n=== Detection metrics ===")
+    print(f"mAP50:       {metrics.box.map50:.4f}")
+    print(f"mAP50-95:    {metrics.box.map:.4f}")
+    print(f"Precision:   {metrics.box.mp:.4f}")
+    print(f"Recall:      {metrics.box.mr:.4f}")
+
+
+if __name__ == "__main__":
+    main()
+
+```
+
+## FILE: export_model.py
+
+```python
+from __future__ import annotations
+
+import argparse
+from ultralytics import YOLO
+
+
+def main():
+    p = argparse.ArgumentParser()
+    p.add_argument("--weights", required=True)
+    p.add_argument("--format", default="onnx", choices=["onnx", "openvino", "engine"])
+    p.add_argument("--imgsz", type=int, default=640)
+    args = p.parse_args()
+
+    model = YOLO(args.weights)
+    path = model.export(format=args.format, imgsz=args.imgsz)
+    print(f"Exported model: {path}")
+
+
+if __name__ == "__main__":
+    main()
+
+```
+
+## FILE: extract_project_prompt.py
+
+```python
+from pathlib import Path
+from collections import Counter
+import subprocess
+import argparse
+
+
+# Files/directories that should NOT be included in the GPT prompt
+EXCLUDED_DIRS = {
+    ".git",
+    ".venv",
+    "venv",
+    "__pycache__",
+    ".pytest_cache",
+    ".mypy_cache",
+    "node_modules",
+    "runs",
+    "models",
+}
+
+EXCLUDED_EXTENSIONS = {
+    ".pt",
+    ".pth",
+    ".onnx",
+    ".engine",
+    ".bin",
+    ".jpg",
+    ".jpeg",
+    ".png",
+    ".webp",
+    ".mp4",
+    ".avi",
+    ".mov",
+}
+
+IMPORTANT_EXTENSIONS = {
+    ".py",
+    ".yaml",
+    ".yml",
+    ".md",
+    ".txt",
+    ".json",
+    ".toml",
+    ".ini",
+    ".cfg",
+    ".xml",
+    ".ino",
+    ".sh",
+    ".ps1",
+}
+
+
+def safe_read(path: Path, max_chars=200_000):
+    """Read a text file safely."""
+    try:
+        text = path.read_text(encoding="utf-8", errors="ignore")
+
+        if len(text) > max_chars:
+            text = text[:max_chars] + "\n\n[FILE TRUNCATED]\n"
+
+        return text
+    except Exception as e:
+        return f"[Could not read file: {e}]"
+
+
+def get_git_info(root: Path):
+    """Get basic Git information."""
+    try:
+        branch = subprocess.check_output(
+            ["git", "-C", str(root), "branch", "--show-current"],
+            text=True,
+            stderr=subprocess.DEVNULL,
+        ).strip()
+
+        commit = subprocess.check_output(
+            ["git", "-C", str(root), "rev-parse", "--short", "HEAD"],
+            text=True,
+            stderr=subprocess.DEVNULL,
+        ).strip()
+
+        return f"Branch: {branch}\nCommit: {commit}"
+
+    except Exception:
+        return "Git information unavailable."
+
+
+def extract_dataset_info(project_root: Path):
+    """Extract information from prepared YOLO dataset."""
+
+    data_root = project_root / "data" / "yolo"
+
+    lines = []
+
+    if not data_root.exists():
+        return "[Prepared YOLO dataset not found]"
+
+    lines.append("## PREPARED YOLO DATASET")
+    lines.append("")
+
+    # dataset.yaml
+    yaml_path = data_root / "dataset.yaml"
+
+    if yaml_path.exists():
+        lines.append("### dataset.yaml")
+        lines.append("```yaml")
+        lines.append(safe_read(yaml_path))
+        lines.append("```")
+        lines.append("")
+
+    # Count images
+    for split in ["train", "val", "test"]:
+        image_dir = data_root / "images" / split
+        label_dir = data_root / "labels" / split
+
+        image_count = len(list(image_dir.glob("*"))) if image_dir.exists() else 0
+
+        label_count = len(list(label_dir.glob("*.txt"))) if label_dir.exists() else 0
+
+        lines.append(f"{split}: {image_count} images, {label_count} label files")
+
+    lines.append("")
+
+    # Class distribution
+    class_counts = Counter()
+
+    for split in ["train", "val", "test"]:
+        label_dir = data_root / "labels" / split
+
+        if not label_dir.exists():
+            continue
+
+        for label_file in label_dir.glob("*.txt"):
+            try:
+                for line in label_file.read_text(
+                    encoding="utf-8",
+                    errors="ignore",
+                ).splitlines():
+                    parts = line.strip().split()
+
+                    if len(parts) == 5:
+                        class_counts[int(parts[0])] += 1
+
+            except Exception:
+                continue
+
+    lines.append("### Annotation class distribution")
+    lines.append("")
+
+    for class_id in sorted(class_counts):
+        lines.append(f"Class {class_id}: {class_counts[class_id]} annotations")
+
+    lines.append("")
+
+    # Sample annotations
+    lines.append("### Sample YOLO annotations")
+    lines.append("")
+
+    sample_labels = list((data_root / "labels" / "train").glob("*.txt"))[:10]
+
+    for label_file in sample_labels:
+        lines.append(f"#### {label_file.name}")
+        lines.append("```text")
+        lines.append(safe_read(label_file, max_chars=10_000))
+        lines.append("```")
+        lines.append("")
+
+    return "\n".join(lines)
+
+
+def extract_project_files(project_root: Path):
+    """Extract relevant project files."""
+
+    sections = []
+
+    # Prioritize important project files
+    priority_files = [
+        "README.md",
+        "requirements.txt",
+        "requirements-dev.txt",
+        "pyproject.toml",
+        "LICENSE",
+    ]
+
+    for filename in priority_files:
+        path = project_root / filename
+
+        if path.exists():
+            sections.append(f"\n## FILE: {path.relative_to(project_root)}\n")
+            sections.append("```text")
+            sections.append(safe_read(path))
+            sections.append("```")
+
+    # Walk project
+    for path in sorted(project_root.rglob("*")):
+        if not path.is_file():
+            continue
+
+        relative = path.relative_to(project_root)
+
+        # Skip excluded directories
+        if any(part in EXCLUDED_DIRS for part in relative.parts):
+            continue
+
+        # Skip excluded extensions
+        if path.suffix.lower() in EXCLUDED_EXTENSIONS:
+            continue
+
+        # Only include useful text files
+        if path.suffix.lower() not in IMPORTANT_EXTENSIONS:
+            continue
+
+        # Avoid duplicating priority files
+        if str(relative) in priority_files:
+            continue
+
+        # Skip generated dataset images
+        if "data" in relative.parts and "images" in relative.parts:
+            continue
+
+        # Skip massive generated files
+        try:
+            if path.stat().st_size > 500_000:
+                continue
+        except Exception:
+            continue
+
+        sections.append(f"\n## FILE: {relative}\n")
+
+        language = path.suffix.lower().replace(".", "")
+
+        if language == "py":
+            language = "python"
+        elif language in {"yaml", "yml"}:
+            language = "yaml"
+        elif language == "md":
+            language = "markdown"
+        elif language == "ino":
+            language = "cpp"
+
+        sections.append(f"```{language}")
+        sections.append(safe_read(path))
+        sections.append("```")
+
+    return "\n".join(sections)
+
+
+def build_prompt(project_root: Path):
+
+    prompt = []
+
+    prompt.append("# GPT PROJECT CONTEXT\n")
+
+    prompt.append(
+        "You are assisting with the following software/robotics project. "
+        "Use the provided project files and dataset information as the "
+        "primary source of truth.\n"
+    )
+
+    prompt.append(
+        "Do not invent files, functionality, configurations, dataset "
+        "properties, or implementation details that are not supported "
+        "by the extracted project context.\n"
+    )
+
+    prompt.append(
+        "When proposing code changes, preserve the existing architecture "
+        "unless there is a clear reason to modify it.\n"
+    )
+
+    prompt.append("## PROJECT ROOT\n")
+
+    prompt.append(str(project_root.resolve()))
+
+    prompt.append("\n\n## GIT INFORMATION\n")
+    prompt.append(get_git_info(project_root))
+
+    prompt.append("\n\n")
+    prompt.append(extract_dataset_info(project_root))
+
+    prompt.append("\n\n")
+    prompt.append("## PROJECT FILES\n")
+    prompt.append(extract_project_files(project_root))
+
+    return "\n".join(prompt)
+
+
+def main():
+
+    parser = argparse.ArgumentParser(
+        description=(
+            "Extract project source, configuration, documentation, "
+            "and dataset metadata into a GPT-ready prompt."
+        )
+    )
+
+    parser.add_argument(
+        "--root",
+        default=".",
+        help="Project root directory",
+    )
+
+    parser.add_argument(
+        "--output",
+        default="GPT_PROJECT_PROMPT.txt",
+        help="Output prompt file",
+    )
+
+    args = parser.parse_args()
+
+    root = Path(args.root).resolve()
+    output = Path(args.output).resolve()
+
+    print(f"Project root: {root}")
+    print("Extracting project information...")
+
+    prompt = build_prompt(root)
+
+    output.write_text(
+        prompt,
+        encoding="utf-8",
+    )
+
+    print()
+    print("Extraction complete.")
+    print(f"Output: {output}")
+    print(f"Characters: {len(prompt):,}")
+    print(f"Approx. tokens: {len(prompt) // 4:,}")
+
+
+if __name__ == "__main__":
+    main()
+
+```
+
+## FILE: prepare_dataset.py
+
+```python
+from pathlib import Path
+import random
+import shutil
+import argparse
+
+
+CLASS_NAMES = [
+    "Kena",
+    "Lavhala",
+    "Lambs Quarter Plant",
+    "Little Mallow",
+    "Moti dudhi",
+    "Obscure morning glory",
+    "Asian pigeonwings",
+    "Bilayat",
+    "Choti dudhi",
+    "Digitaria SP",
+    "Gajar gavat",
+    "Graceful sandmat",
+    "Sicklepod",
+    "Harali",
+    "Dwarf cassia",
+]
+
+
+def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument(
+        "--dataset-root",
+        required=True,
+        help="Path to MH-Weed16/MH-Weed16",
+    )
+    parser.add_argument(
+        "--output",
+        default="data/yolo",
+        help="Output YOLO dataset directory",
+    )
+    parser.add_argument("--seed", type=int, default=42)
+    args = parser.parse_args()
+
+    root = Path(args.dataset_root)
+    output = Path(args.output)
+
+    image_dir = (
+        root / "Crop with Weeds" / "intel Real Sense Depth_Clicks" / "intel Real Sense Depth_Clicks"
+    )
+
+    label_dir = (
+        root
+        / "Crop with Weeds"
+        / "intel Real Sense Depth_Annotations"
+        / "intel Real Sense Depth_Annotations"
+        / "YOLO_darknet"
+    )
+
+    if not image_dir.exists():
+        raise FileNotFoundError(f"Image directory not found: {image_dir}")
+
+    if not label_dir.exists():
+        raise FileNotFoundError(f"Label directory not found: {label_dir}")
+
+    labels = sorted(label_dir.glob("*.txt"))
+
+    if not labels:
+        raise RuntimeError("No YOLO annotation files found.")
+
+    pairs = []
+
+    for label in labels:
+        image = image_dir / f"{label.stem}.jpeg"
+
+        if not image.exists():
+            raise RuntimeError(f"Missing image for label: {label.name}")
+
+        # Validate YOLO annotation.
+        for line_number, line in enumerate(label.read_text(encoding="utf-8").splitlines(), start=1):
+            line = line.strip()
+
+            if not line:
+                continue
+
+            parts = line.split()
+
+            if len(parts) != 5:
+                raise ValueError(f"Invalid annotation in {label} line {line_number}: {line}")
+
+            class_id = int(parts[0])
+
+            if not 0 <= class_id < len(CLASS_NAMES):
+                raise ValueError(f"Invalid class ID {class_id} in {label} line {line_number}")
+
+            values = [float(x) for x in parts[1:]]
+
+            if not all(0.0 <= x <= 1.0 for x in values):
+                raise ValueError(f"Invalid normalized coordinate in {label} line {line_number}")
+
+        pairs.append((image, label))
+
+    print(f"Found {len(pairs)} image/label pairs.")
+
+    random.seed(args.seed)
+    random.shuffle(pairs)
+
+    total = len(pairs)
+
+    train_end = int(total * 0.70)
+    val_end = train_end + int(total * 0.15)
+
+    splits = {
+        "train": pairs[:train_end],
+        "val": pairs[train_end:val_end],
+        "test": pairs[val_end:],
+    }
+
+    # Create directories.
+    for split in splits:
+        (output / "images" / split).mkdir(parents=True, exist_ok=True)
+        (output / "labels" / split).mkdir(parents=True, exist_ok=True)
+
+    # Copy data.
+    for split, split_pairs in splits.items():
+        for image, label in split_pairs:
+            shutil.copy2(
+                image,
+                output / "images" / split / image.name,
+            )
+
+            shutil.copy2(
+                label,
+                output / "labels" / split / label.name,
+            )
+
+    # Create dataset.yaml
+    yaml_lines = [
+        f"path: {output.resolve()}",
+        "train: images/train",
+        "val: images/val",
+        "test: images/test",
+        "",
+        f"nc: {len(CLASS_NAMES)}",
+        "names:",
+    ]
+
+    for index, name in enumerate(CLASS_NAMES):
+        yaml_lines.append(f"  {index}: '{name}'")
+
+    (output / "dataset.yaml").write_text(
+        "\n".join(yaml_lines) + "\n",
+        encoding="utf-8",
+    )
+
+    print()
+    print("Dataset prepared successfully.")
+    print(f"Train: {len(splits['train'])}")
+    print(f"Val:   {len(splits['val'])}")
+    print(f"Test:  {len(splits['test'])}")
+    print(f"Total: {total}")
+    print(f"Output: {output.resolve()}")
+    print(f"Classes: {len(CLASS_NAMES)}")
+
+
+if __name__ == "__main__":
+    main()
+
+```
+
+## FILE: train_detector.py
+
+```python
+from __future__ import annotations
+
+import argparse
+from pathlib import Path
+
+from ultralytics import YOLO
+
+
+def main():
+    p = argparse.ArgumentParser()
+    p.add_argument("--data", required=True)
+    p.add_argument("--model", default="yolov8n.pt")
+    p.add_argument("--epochs", type=int, default=50)
+    p.add_argument("--imgsz", type=int, default=640)
+    p.add_argument("--batch", type=int, default=16)
+    p.add_argument("--device", default="0")
+    p.add_argument("--project", default="runs")
+    p.add_argument("--name", default="weed_detector")
+    args = p.parse_args()
+
+    model = YOLO(args.model)
+    model.train(
+        data=args.data,
+        epochs=args.epochs,
+        imgsz=args.imgsz,
+        batch=args.batch,
+        device=args.device,
+        project=args.project,
+        name=args.name,
+        pretrained=True,
+        patience=15,
+        workers=4,
+        cos_lr=True,
+        plots=True,
+        verbose=True,
+    )
+
+
+if __name__ == "__main__":
+    main()
+
+```
