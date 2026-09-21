@@ -1,0 +1,38 @@
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+.env
+
+# IDE
+.vscode/
+.idea/
+
+# Training outputs
+runs/
+wandb/
+mlruns/
+*.pt
+*.onnx
+*.engine
+
+# Dataset - DO NOT COMMIT
+data/raw/
+data/yolo/images/
+data/yolo/labels/
+data/**/*.jpg
+data/**/*.jpeg
+data/**/*.png
+data/**/*.json
+data/**/*.xml
+data/**/*.txt
+
+# Logs
+logs/
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
