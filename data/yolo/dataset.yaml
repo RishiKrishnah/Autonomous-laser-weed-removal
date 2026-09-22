@@ -1,0 +1,22 @@
+path: C:\Users\rishi\RishiProjects\Autonomous_Laser_Weed_Removal\Autonomous-laser-weed-removal\data\yolo
+train: images/train
+val: images/val
+test: images/test
+
+nc: 15
+names:
+  0: 'Kena'
+  1: 'Lavhala'
+  2: 'Lambs Quarter Plant'
+  3: 'Little Mallow'
+  4: 'Moti dudhi'
+  5: 'Obscure morning glory'
+  6: 'Asian pigeonwings'
+  7: 'Bilayat'
+  8: 'Choti dudhi'
+  9: 'Digitaria SP'
+  10: 'Gajar gavat'
+  11: 'Graceful sandmat'
+  12: 'Sicklepod'
+  13: 'Harali'
+  14: 'Dwarf cassia'
