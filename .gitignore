@@ -11,7 +11,9 @@ venv/
 .idea/
 
 # Training outputs
-runs/
+runs/detect/runs/weed_predictions_test
+runs/detect/runs/weed_predictions_test-2
+
 wandb/
 mlruns/
 *.pt
