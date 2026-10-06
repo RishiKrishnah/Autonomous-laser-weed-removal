@@ -14,6 +14,3349 @@ C:\Users\rishi\RishiProjects\Autonomous_Laser_Weed_Removal\Autonomous-laser-weed
 ## GIT INFORMATION
 
 Branch: main
+Commit: 50f8cf6
+
+
+
+## PREPARED YOLO DATASET
+
+### dataset.yaml
+```yaml
+path: C:\Users\rishi\RishiProjects\Autonomous_Laser_Weed_Removal\Autonomous-laser-weed-removal\data\yolo
+train: images/train
+val: images/val
+test: images/test
+
+nc: 15
+names:
+  0: 'Kena'
+  1: 'Lavhala'
+  2: 'Lambs Quarter Plant'
+  3: 'Little Mallow'
+  4: 'Moti dudhi'
+  5: 'Obscure morning glory'
+  6: 'Asian pigeonwings'
+  7: 'Bilayat'
+  8: 'Choti dudhi'
+  9: 'Digitaria SP'
+  10: 'Gajar gavat'
+  11: 'Graceful sandmat'
+  12: 'Sicklepod'
+  13: 'Harali'
+  14: 'Dwarf cassia'
+
+```
+
+train: 4659 images, 4659 label files
+val: 998 images, 998 label files
+test: 999 images, 999 label files
+
+### Annotation class distribution
+
+Class 0: 6512 annotations
+Class 1: 22739 annotations
+Class 2: 22394 annotations
+Class 3: 2217 annotations
+Class 4: 1804 annotations
+Class 5: 2278 annotations
+Class 6: 181 annotations
+Class 7: 214 annotations
+Class 8: 836 annotations
+Class 9: 1425 annotations
+Class 10: 476 annotations
+Class 11: 126 annotations
+Class 12: 399 annotations
+Class 13: 184 annotations
+Class 14: 267 annotations
+
+### Sample YOLO annotations
+
+#### 090800iy3emo472414_684.txt
+```text
+3 0.89375 0.3787037037037037 0.21145833333333333 0.5314814814814814
+3 0.1421875 0.39537037037037037 0.27708333333333335 0.7685185185185185
+1 0.2296875 0.15 0.13125 0.24259259259259258
+2 0.71640625 0.14675925925925926 0.06197916666666667 0.10833333333333334
+
+```
+
+#### 090805j6869f452411_137.txt
+```text
+2 0.15078125 0.6092592592592593 0.0734375 0.10740740740740741
+2 0.43515625 0.4981481481481482 0.04010416666666667 0.07222222222222222
+1 0.37395833333333334 0.8717592592592592 0.06666666666666667 0.1638888888888889
+1 0.08385416666666666 0.8185185185185185 0.16770833333333332 0.34629629629629627
+1 0.05078125 0.39490740740740743 0.1015625 0.35648148148148145
+1 0.1265625 0.04027777777777778 0.18645833333333334 0.08055555555555556
+
+```
+
+#### 090807o0g127452411_140.txt
+```text
+1 0.30755208333333334 0.11388888888888889 0.6151041666666667 0.2111111111111111
+1 0.3533854166666667 0.9425925925925925 0.2421875 0.08333333333333333
+1 0.17734375 0.41898148148148145 0.3546875 0.39537037037037037
+1 0.23359375 0.7569444444444444 0.24010416666666667 0.275
+1 0.44244791666666666 0.6847222222222222 0.10572916666666667 0.16203703703703703
+1 0.64453125 0.9421296296296297 0.0796875 0.09351851851851851
+2 0.6825520833333333 0.6027777777777777 0.0546875 0.05
+2 0.5640625 0.7912037037037037 0.030208333333333334 0.04537037037037037
+
+```
+
+#### 09080x5380ao462413_166.txt
+```text
+1 0.14479166666666668 0.3037037037037037 0.271875 0.3685185185185185
+1 0.0796875 0.7472222222222222 0.15625 0.4759259259259259
+2 0.27734375 0.04398148148148148 0.021354166666666667 0.03796296296296296
+1 0.6028645833333334 0.5342592592592592 0.2140625 0.34444444444444444
+1 0.8302083333333333 0.5421296296296296 0.31354166666666666 0.4564814814814815
+3 0.9403645833333333 0.9 0.10572916666666667 0.18333333333333332
+1 0.22942708333333334 0.9560185185185185 0.09635416666666667 0.08055555555555556
+
+```
+
+#### 0908128u2u45452411_747.txt
+```text
+1 0.8333333333333334 0.7611111111111111 0.32916666666666666 0.4722222222222222
+1 0.54375 0.6976851851851852 0.24791666666666667 0.5953703703703703
+1 0.42473958333333334 0.20324074074074075 0.4901041666666667 0.38981481481481484
+1 0.09270833333333334 0.6023148148148149 0.18541666666666667 0.7768518518518519
+1 0.2986979166666667 0.6986111111111111 0.23802083333333332 0.5972222222222222
+2 0.9658854166666667 0.9277777777777778 0.034895833333333334 0.06481481481481481
+2 0.82578125 0.5064814814814815 0.04010416666666667 0.07592592592592592
+2 0.26223958333333336 0.08333333333333333 0.0578125 0.08703703703703704
+
+```
+
+#### 090815j0fsy5452411_155.txt
+```text
+1 0.9072916666666667 0.35324074074074074 0.18333333333333332 0.6768518518518518
+1 0.6924479166666667 0.3527777777777778 0.2421875 0.674074074074074
+1 0.5184895833333333 0.32731481481481484 0.10572916666666667 0.6064814814814815
+1 0.21536458333333333 0.6027777777777777 0.3953125 0.35185185185185186
+1 0.6033854166666667 0.8171296296296297 0.34010416666666665 0.3472222222222222
+0 0.52109375 0.35324074074074074 0.06197916666666667 0.1175925925925926
+
+```
+
+#### 090819o95vx6452411_109.txt
+```text
+1 0.5390625 0.8185185185185185 0.384375 0.3537037037037037
+1 0.17135416666666667 0.7412037037037037 0.34270833333333334 0.487962962962963
+1 0.45989583333333334 0.325 0.25416666666666665 0.6240740740740741
+1 0.16953125 0.25046296296296294 0.32135416666666666 0.46944444444444444
+
+```
+
+#### 09082230r1jf472414_145.txt
+```text
+1 0.18072916666666666 0.2564814814814815 0.234375 0.5018518518518519
+1 0.9388020833333334 0.21898148148148147 0.0734375 0.13240740740740742
+2 0.8755208333333333 0.8282407407407407 0.022916666666666665 0.049074074074074076
+
+```
+
+#### 0908231qlh77452411_161.txt
+```text
+2 0.3046875 0.7231481481481481 0.023958333333333335 0.07592592592592592
+2 0.5830729166666667 0.6388888888888888 0.050520833333333334 0.11481481481481481
+2 0.41796875 0.3138888888888889 0.0234375 0.03333333333333333
+2 0.5205729166666667 0.1726851851851852 0.08385416666666666 0.1527777777777778
+2 0.5854166666666667 0.31296296296296294 0.016666666666666666 0.02962962962962963
+2 0.6044270833333333 0.1925925925925926 0.025520833333333333 0.04259259259259259
+2 0.3515625 0.03657407407407407 0.046875 0.041666666666666664
+2 0.07760416666666667 0.07361111111111111 0.041666666666666664 0.06388888888888888
+2 0.030729166666666665 0.9578703703703704 0.06145833333333333 0.0787037037037037
+1 0.9208333333333333 0.6185185185185185 0.15625 0.4962962962962963
+
+```
+
+#### 09082nc82173452411_774.txt
+```text
+1 0.83828125 0.7143518518518519 0.32135416666666666 0.5527777777777778
+1 0.77734375 0.22083333333333333 0.4432291666666667 0.425
+2 0.5705729166666667 0.1935185185185185 0.024479166666666666 0.1037037037037037
+2 0.6515625 0.08888888888888889 0.03125 0.046296296296296294
+2 0.05364583333333333 0.20555555555555555 0.04895833333333333 0.1
+2 0.0234375 0.3199074074074074 0.025 0.05277777777777778
+1 0.5440104166666667 0.7208333333333333 0.2755208333333333 0.5361111111111111
+1 0.28854166666666664 0.7393518518518518 0.22395833333333334 0.5083333333333333
+
+```
+
+
+
+
+## PROJECT FILES
+
+
+## FILE: README.md
+
+```text
+# Autonomous Vision-Guided Weed Targeting and Safe Treatment Prototype
+
+A computer-vision-based autonomous precision-weeding prototype that detects weed species, identifies a target point, tracks the target temporally, converts image coordinates into pan/tilt commands, applies software safety checks, and records system events.
+
+The system is designed around the following pipeline:
+
+```text
+RGB Camera
+    │
+    ▼
+YOLO Weed Detection
+    │
+    ▼
+Target Selection
+    │
+    ▼
+Temporal Target Tracking
+    │
+    ▼
+Crop Exclusion Check
+    │
+    ▼
+Pixel → Pan/Tilt Localization
+    │
+    ▼
+Safety Gate
+    │
+    ├── BLOCKED ──────────────┐
+    │                         │
+    ▼                         │
+Safe Hardware Interface       │
+    │                         │
+    ▼                         │
+Temporal Visual Verification  │
+    │                         │
+    ▼                         │
+Event Logging ◄───────────────┘
+```
+
+> **Safety note:** The submitted reference implementation does **not autonomously activate a hazardous laser**. Treatment output is disabled by default. The hardware layer supports safe simulation/indicator control, while the software demonstrates detection, localization, tracking, safety decisions, pan/tilt control, verification logic, and logging.
+
+---
+
+# 1. Project Overview
+
+Precision weed removal requires a system capable of distinguishing weeds from crops and accurately directing a treatment mechanism toward the selected weed.
+
+This project implements the computer-vision and robotic targeting pipeline required for such a system.
+
+The main objectives are:
+
+1. Detect weeds from an RGB camera.
+2. Classify the detected weed species.
+3. Select an appropriate target.
+4. Track the target over multiple frames.
+5. Reject unstable or rapidly moving targets.
+6. Prevent targeting inside configured crop-exclusion regions.
+7. Convert image coordinates into pan/tilt servo coordinates.
+8. Apply a multi-condition software safety gate.
+9. Interface with an ESP32-based pan/tilt controller.
+10. Maintain safe default hardware states.
+11. Perform temporal visual verification.
+12. Log targeting and safety events.
+13. Provide reproducible dataset preparation, training, and evaluation scripts.
+14. Provide automated unit tests for the core robotics and safety logic.
+
+---
+
+# 2. Key Features
+
+## Computer Vision
+
+- YOLO-based weed detection
+- Multi-class weed classification
+- Configurable confidence threshold
+- Configurable IoU threshold
+- 640 × 640 inference configuration
+- Bounding-box based target selection
+- Camera-frame target prioritization
+
+## Temporal Tracking
+
+- Multi-frame target stabilization
+- Configurable number of stable frames
+- Maximum allowable target movement
+- Target timeout handling
+- Automatic tracker reset when no target is detected
+
+## Target Localization
+
+The current implementation uses the center of the detected bounding box as the target point:
+
+```text
+YOLO Bounding Box
+        │
+        ▼
+Bounding Box Center
+        │
+        ▼
+Camera Calibration
+        │
+        ▼
+Pan / Tilt Coordinates
+```
+
+The architecture can later be extended with a dedicated stem or treatment-point estimator.
+
+## Crop Safety
+
+The system supports configurable polygonal crop-exclusion zones.
+
+A target is rejected when its target point falls inside a configured crop zone.
+
+```text
++--------------------------------------+
+|                                      |
+|        WEED TARGET                   |
+|           ●                          |
+|                                      |
+|                    ┌──────────────┐  |
+|                    │ CROP ZONE    │  |
+|                    │              │  |
+|                    │   BLOCKED    │  |
+|                    │              │  |
+|                    └──────────────┘  |
+|                                      |
++--------------------------------------+
+```
+
+## Safety Gate
+
+The safety system considers:
+
+- Detection confidence
+- Target stability
+- Crop proximity
+- Target timeout
+- Emergency-stop state
+- Interlock state
+- Treatment-enable state
+- Stationary-target requirement
+
+The system fails safely whenever a required condition is not satisfied.
+
+## Hardware Interface
+
+The hardware layer supports:
+
+- Simulation mode
+- Serial communication
+- Pan control
+- Tilt control
+- Safe indicator output
+- Emergency-stop handling
+- Servo limits
+
+## ESP32
+
+The ESP32 firmware provides a safe controller for:
+
+- Pan servo
+- Tilt servo
+- Emergency stop
+- Enclosure/interlock input
+- Safe indicator output
+- Serial status reporting
+
+## Logging
+
+System events are recorded with information such as:
+
+- Weed class
+- Weed class name
+- Detection confidence
+- Target coordinates
+- Pan angle
+- Tilt angle
+- Crop exclusion status
+- Safety state
+- Verification state
+- Timestamp
+
+---
+
+# 3. Dataset
+
+This project is based on the **MH-Weed16** dataset.
+
+The original MH-Weed16 dataset contains 16 weed classes.
+
+However, the dataset prepared and used by this repository is a **15-class subset**.
+
+> **Important:** The current trained dataset does not contain class 15, Punarnava. Therefore, this implementation must be described as a **15-class MH-Weed16 subset**, not as a 16-class trained model.
+
+## 3.1 Current Dataset Classes
+
+| ID | Weed Class |
+|---:|---|
+| 0 | Kena |
+| 1 | Lavhala |
+| 2 | Lambs Quarter Plant |
+| 3 | Little Mallow |
+| 4 | Moti dudhi |
+| 5 | Obscure morning glory |
+| 6 | Asian pigeonwings |
+| 7 | Bilayat |
+| 8 | Choti dudhi |
+| 9 | Digitaria SP |
+| 10 | Gajar gavat |
+| 11 | Graceful sandmat |
+| 12 | Sicklepod |
+| 13 | Harali |
+| 14 | Dwarf cassia |
+
+Class 15:
+
+```text
+Punarnava
+```
+
+is not included in the current prepared dataset.
+
+---
+
+# 4. Prepared Dataset
+
+The current prepared YOLO dataset contains:
+
+| Split | Images | Labels |
+|---|---:|---:|
+| Training | 4,659 | 4,659 |
+| Validation | 998 | 998 |
+| Test | 999 | 999 |
+| **Total** | **6,656** | **6,656** |
+
+The dataset is divided into:
+
+```text
+data/yolo/
+├── images/
+│   ├── train/
+│   ├── val/
+│   └── test/
+│
+├── labels/
+│   ├── train/
+│   ├── val/
+│   └── test/
+│
+└── dataset.yaml
+```
+
+The dataset split is generated reproducibly using a fixed random seed.
+
+Default:
+
+```text
+seed = 42
+```
+
+The split used by the preparation script is approximately:
+
+```text
+70% training
+15% validation
+15% testing
+```
+
+The dataset itself should not be committed to GitHub.
+
+---
+
+# 5. Repository Structure
+
+```text
+autonomous-laser-weed-removal/
+│
+├── configs/
+│   ├── classes.txt
+│   ├── config.yaml
+│   └── mh_weed16.yaml
+│
+├── data/
+│   └── README.md
+│
+├── docs/
+│   ├── ARCHITECTURE.md
+│   └── EXPERIMENTS.md
+│
+├── firmware/
+│   └── esp32/
+│       └── weed_target_controller.ino
+│
+├── models/
+│   └── README.md
+│
+├── scripts/
+│   ├── prepare_dataset.py
+│   ├── train_detector.py
+│   ├── evaluate_detector.py
+│   └── export_model.py
+│
+├── src/
+│   └── weedlaser/
+│       ├── __init__.py
+│       ├── config.py
+│       ├── crop_exclusion.py
+│       ├── detector.py
+│       ├── hardware.py
+│       ├── localization.py
+│       ├── logger.py
+│       ├── main.py
+│       ├── safety.py
+│       ├── tracker.py
+│       └── verification.py
+│
+├── tests/
+│   └── test_core.py
+│
+├── requirements.txt
+├── requirements-dev.txt
+├── pyproject.toml
+├── .gitignore
+├── LICENSE
+└── README.md
+```
+
+---
+
+# 6. System Architecture
+
+The system is divided into independent modules.
+
+```text
+                    ┌──────────────────┐
+                    │    RGB Camera    │
+                    └────────┬─────────┘
+                             │
+                             ▼
+                    ┌──────────────────┐
+                    │  YOLO Detector   │
+                    └────────┬─────────┘
+                             │
+                             ▼
+                    ┌──────────────────┐
+                    │ Target Selection │
+                    └────────┬─────────┘
+                             │
+                             ▼
+                    ┌──────────────────┐
+                    │ Temporal Tracker │
+                    └────────┬─────────┘
+                             │
+                 ┌───────────┴───────────┐
+                 ▼                       ▼
+       ┌──────────────────┐    ┌──────────────────┐
+       │ Crop Exclusion   │    │ Localization     │
+       └────────┬─────────┘    └────────┬─────────┘
+                │                       │
+                └───────────┬───────────┘
+                            ▼
+                   ┌─────────────────┐
+                   │   Safety Gate   │
+                   └────────┬────────┘
+                            │
+                            ▼
+                   ┌─────────────────┐
+                   │ Hardware Layer  │
+                   └────────┬────────┘
+                            │
+                            ▼
+                    ┌────────────────┐
+                    │ ESP32 / Servo  │
+                    └────────┬───────┘
+                             │
+                             ▼
+                    ┌────────────────┐
+                    │ Verification   │
+                    └────────┬───────┘
+                             │
+                             ▼
+                    ┌────────────────┐
+                    │ Event Logger   │
+                    └────────────────┘
+```
+
+---
+
+# 7. Software Requirements
+
+Recommended environment:
+
+- Python 3.10 or newer
+- OpenCV
+- Ultralytics YOLO
+- NumPy
+- PyYAML
+- PySerial
+- Pillow
+- Pandas
+- Matplotlib
+- Scikit-learn
+- tqdm
+
+Development tools:
+
+- pytest
+- Ruff
+
+The Python version requirement is defined in `pyproject.toml`.
+
+---
+
+# 8. Installation
+
+## 8.1 Windows
+
+Open PowerShell:
+
+```powershell
+git clone <YOUR-REPOSITORY-URL>
+
+cd autonomous-laser-weed-removal
+
+python -m venv .venv
+
+.\.venv\Scripts\Activate.ps1
+
+python -m pip install --upgrade pip
+
+pip install -r requirements.txt
+```
+
+For development dependencies:
+
+```powershell
+pip install -r requirements-dev.txt
+```
+
+---
+
+## 8.2 Linux
+
+```bash
+git clone <YOUR-REPOSITORY-URL>
+
+cd autonomous-laser-weed-removal
+
+python3 -m venv .venv
+
+source .venv/bin/activate
+
+python -m pip install --upgrade pip
+
+pip install -r requirements.txt
+```
+
+For development dependencies:
+
+```bash
+pip install -r requirements-dev.txt
+```
+
+---
+
+# 9. PyTorch Installation
+
+Ultralytics requires PyTorch.
+
+If the automatic dependency installation does not install a suitable PyTorch build for the available GPU, install the appropriate PyTorch version for the system first using the official PyTorch installation instructions.
+
+After installing PyTorch, install the project requirements:
+
+```bash
+pip install -r requirements.txt
+```
+
+Verify the installation:
+
+```bash
+python -c "import torch; print(torch.__version__); print(torch.cuda.is_available())"
+```
+
+A CUDA-enabled installation should report:
+
+```text
+True
+```
+
+for `torch.cuda.is_available()` when a compatible NVIDIA GPU and CUDA-enabled PyTorch installation are available.
+
+---
+
+# 10. Dataset Preparation
+
+The repository contains a reproducible dataset preparation script.
+
+The current implementation expects the MH-Weed16 dataset root and specifically looks for the required image and YOLO annotation directories inside the dataset.
+
+Run:
+
+```powershell
+python scripts/prepare_dataset.py `
+    --dataset-root "C:\path\to\MH-Weed16" `
+    --output data/yolo `
+    --seed 42
+```
+
+On Linux:
+
+```bash
+python scripts/prepare_dataset.py \
+    --dataset-root /path/to/MH-Weed16 \
+    --output data/yolo \
+    --seed 42
+```
+
+The script:
+
+1. Locates the image directory.
+2. Locates the YOLO annotation directory.
+3. Validates annotation format.
+4. Validates class IDs.
+5. Validates normalized coordinates.
+6. Matches images with annotation files.
+7. Randomizes the dataset using a fixed seed.
+8. Creates train/validation/test splits.
+9. Copies images and labels into YOLO format.
+10. Generates `dataset.yaml`.
+
+The resulting dataset should contain:
+
+```text
+data/yolo/
+├── images/
+│   ├── train/
+│   ├── val/
+│   └── test/
+│
+├── labels/
+│   ├── train/
+│   ├── val/
+│   └── test/
+│
+└── dataset.yaml
+```
+
+---
+
+# 11. Dataset Configuration
+
+The generated `dataset.yaml` contains:
+
+```yaml
+nc: 15
+```
+
+and the 15 class names.
+
+The dataset must remain consistent with:
+
+```text
+configs/classes.txt
+```
+
+Do not add Punarnava to `classes.txt` unless the dataset is regenerated with actual annotations for that class.
+
+---
+
+# 12. Model Training
+
+The project uses Ultralytics YOLO for object detection.
+
+A baseline training run can be performed with:
+
+```powershell
+python scripts/train_detector.py `
+    --data data/yolo/dataset.yaml `
+    --model yolov8n.pt `
+    --epochs 100 `
+    --imgsz 640 `
+    --batch 16 `
+    --device 0 `
+    --project runs `
+    --name weed_detector_final
+```
+
+The resulting weights should be available under:
+
+```text
+runs/
+└── weed_detector_final/
+    └── weights/
+        ├── best.pt
+        └── last.pt
+```
+
+The exact output location depends on the Ultralytics run configuration.
+
+---
+
+# 13. CPU Training
+
+For systems without a CUDA-capable GPU:
+
+```powershell
+python scripts/train_detector.py `
+    --data data/yolo/dataset.yaml `
+    --model yolov8n.pt `
+    --epochs 20 `
+    --imgsz 640 `
+    --batch 4 `
+    --device cpu `
+    --project runs `
+    --name weed_detector_cpu
+```
+
+CPU training will generally be slower than GPU training.
+
+---
+
+# 14. Model Evaluation
+
+Evaluation must be performed on the held-out test split.
+
+Example:
+
+```powershell
+python scripts/evaluate_detector.py `
+    --weights runs/weed_detector_final/weights/best.pt `
+    --data data/yolo/dataset.yaml `
+    --device 0 `
+    --imgsz 640
+```
+
+The evaluation script reports:
+
+```text
+Precision
+Recall
+mAP@0.50
+mAP@0.50:0.95
+```
+
+The evaluation results should be recorded in the project experiment documentation.
+
+> Do not hard-code or claim model accuracy in this README unless the final trained model has actually been evaluated and the reported values correspond to that exact model and test set.
+
+---
+
+# 15. Single-Image Prediction
+
+A single test image can be evaluated using Ultralytics directly.
+
+Example:
+
+```powershell
+python -c "from ultralytics import YOLO; m=YOLO('runs/weed_detector_final/weights/best.pt'); r=m.predict(source='data/yolo/images/test/YOUR_IMAGE.jpeg', conf=0.55, save=True); print(r[0].boxes)"
+```
+
+The prediction output contains:
+
+- Bounding boxes
+- Class IDs
+- Class names
+- Confidence scores
+
+The generated annotated image can then be inspected visually.
+
+---
+
+# 16. Live Camera Inference
+
+After training the model, run:
+
+```powershell
+python -m src.weedlaser.main `
+    --weights runs/weed_detector_final/weights/best.pt `
+    --source 0 `
+    --config configs/config.yaml
+```
+
+The `--source` argument can be:
+
+```text
+0
+```
+
+for the default webcam, or a video path such as:
+
+```text
+sample_video.mp4
+```
+
+Example:
+
+```powershell
+python -m src.weedlaser.main `
+    --weights runs/weed_detector_final/weights/best.pt `
+    --source "test_video.mp4" `
+    --config configs/config.yaml
+```
+
+Press:
+
+```text
+q
+```
+
+to exit the display window.
+
+---
+
+# 17. Runtime Configuration
+
+The main configuration is:
+
+```text
+configs/config.yaml
+```
+
+Important parameters include:
+
+```yaml
+camera:
+  source: 0
+  width: 640
+  height: 480
+  fps: 30
+```
+
+Model configuration:
+
+```yaml
+model:
+  confidence: 0.55
+  iou: 0.45
+  imgsz: 640
+  target_mode: bbox_center
+```
+
+Tracking:
+
+```yaml
+tracking:
+  enabled: true
+  required_stable_frames: 5
+  max_center_jump_px: 60
+  target_timeout_s: 1.0
+```
+
+Safety:
+
+```yaml
+safety:
+  require_stable_target: true
+  minimum_confidence: 0.55
+  require_stationary: true
+  emergency_stop: true
+  interlock_closed: false
+  treatment_enabled: false
+```
+
+Hardware:
+
+```yaml
+hardware:
+  mode: simulation
+```
+
+These defaults intentionally keep the system in a safe state.
+
+---
+
+# 18. Target Selection
+
+The detector may identify multiple weeds in a frame.
+
+The localization module converts each detection into a target representation.
+
+The current target point is:
+
+```text
+x_center = (x1 + x2) / 2
+y_center = (y1 + y2) / 2
+```
+
+The system then selects a target based on the configured target-selection logic.
+
+The current implementation uses the bounding-box center as a conservative target-point approximation.
+
+---
+
+# 19. Temporal Target Tracking
+
+A single detection is not considered sufficient for stable autonomous targeting.
+
+The tracker requires the target to remain stable over multiple frames.
+
+Current configuration:
+
+```yaml
+required_stable_frames: 5
+max_center_jump_px: 60
+target_timeout_s: 1.0
+```
+
+Conceptually:
+
+```text
+Frame 1 ── Detection
+Frame 2 ── Detection
+Frame 3 ── Detection
+Frame 4 ── Detection
+Frame 5 ── Detection
+             │
+             ▼
+        Stable Target
+```
+
+If the target moves beyond the permitted threshold, the target is considered unstable.
+
+If the target disappears for longer than the configured timeout, the tracker resets.
+
+---
+
+# 20. Crop Exclusion
+
+Crop exclusion is implemented in:
+
+```text
+src/weedlaser/crop_exclusion.py
+```
+
+The system supports polygonal exclusion zones.
+
+Example configuration:
+
+```yaml
+crop_exclusion:
+  enabled: true
+  zones:
+    - name: crop_zone_1
+      points:
+        - [0, 0]
+        - [200, 0]
+        - [200, 150]
+        - [0, 150]
+```
+
+The points represent image coordinates.
+
+If the target point lies inside a crop-exclusion polygon:
+
+```text
+Target = BLOCKED
+```
+
+This prevents the target from being treated as an eligible target.
+
+---
+
+# 21. Pixel-to-Servo Localization
+
+The localization module converts image coordinates into pan/tilt coordinates.
+
+Conceptually:
+
+```text
+Image X/Y
+   │
+   ▼
+Camera Calibration
+   │
+   ▼
+Pan / Tilt Angles
+   │
+   ▼
+Servo Limits
+```
+
+The configured limits are:
+
+```yaml
+pan_min_deg: 20
+pan_max_deg: 160
+
+tilt_min_deg: 20
+tilt_max_deg: 120
+```
+
+The output is clipped to the configured servo limits.
+
+This prevents the software from commanding angles outside the permitted mechanical range.
+
+---
+
+# 22. Camera Calibration
+
+The configuration contains calibration parameters for:
+
+```text
+Camera resolution
+Pan center
+Tilt center
+Pixel-to-angle coefficients
+```
+
+The default calibration is an initial empirical configuration.
+
+For a physical prototype, the calibration values should be experimentally measured using known image points and corresponding pan/tilt positions.
+
+A proper calibration experiment should record:
+
+```text
+Image coordinate
+Expected pan angle
+Expected tilt angle
+Measured pan angle
+Measured tilt angle
+Localization error
+```
+
+The final calibration values should be documented in `docs/EXPERIMENTS.md`.
+
+---
+
+# 23. Safety State Machine
+
+The safety module is implemented in:
+
+```text
+src/weedlaser/safety.py
+```
+
+The conceptual system flow is:
+
+```text
+IDLE
+  │
+  ▼
+DETECTION
+  │
+  ▼
+TARGET TRACKING
+  │
+  ▼
+STABLE TARGET
+  │
+  ▼
+CROP SAFETY CHECK
+  │
+  ▼
+LOCALIZATION
+  │
+  ▼
+SAFETY GATE
+  │
+  ├───────────────┐
+  │               │
+  ▼               ▼
+READY           BLOCKED
+  │
+  ▼
+SAFE HARDWARE INTERFACE
+  │
+  ▼
+VERIFICATION
+  │
+  ▼
+LOGGING
+```
+
+The safety gate checks:
+
+### Detection confidence
+
+The detection must meet the configured minimum confidence.
+
+```yaml
+minimum_confidence: 0.55
+```
+
+### Target stability
+
+The target must remain stable for the configured number of frames.
+
+### Crop exclusion
+
+A target inside a crop zone is rejected.
+
+### Emergency stop
+
+If the emergency-stop state is active, the safety gate blocks operation.
+
+### Interlock
+
+The system requires the configured interlock condition.
+
+### Treatment enable
+
+The system requires explicit treatment authorization.
+
+### Stationary target
+
+The current configuration requires the target to be stationary before any treatment authorization state is considered.
+
+---
+
+# 24. Safe Default State
+
+The reference configuration intentionally contains:
+
+```yaml
+emergency_stop: true
+interlock_closed: false
+treatment_enabled: false
+```
+
+This means the default runtime state is:
+
+```text
+BLOCKED
+```
+
+This is intentional.
+
+The project prioritizes fail-safe behavior over autonomous treatment activation.
+
+A `READY` state can still be tested through the software unit tests by supplying safe simulated inputs to the safety gate.
+
+---
+
+# 25. Hardware Abstraction
+
+The hardware interface is implemented in:
+
+```text
+src/weedlaser/hardware.py
+```
+
+The abstraction allows the same application pipeline to operate with:
+
+```text
+Simulation Controller
+```
+
+or
+
+```text
+Serial Controller
+```
+
+This separates computer-vision logic from physical hardware.
+
+The application can therefore be developed and tested without connecting an actuator.
+
+---
+
+# 26. ESP32 Controller
+
+Firmware:
+
+```text
+firmware/esp32/weed_target_controller.ino
+```
+
+The ESP32 controls the pan/tilt mechanism and safe indicator interface.
+
+The current firmware supports the following serial commands.
+
+## Pan
+
+```text
+PAN <degrees>
+```
+
+Example:
+
+```text
+PAN 90
+```
+
+## Tilt
+
+```text
+TILT <degrees>
+```
+
+Example:
+
+```text
+TILT 70
+```
+
+## Safe Indicator
+
+```text
+INDICATOR ON
+```
+
+and:
+
+```text
+INDICATOR OFF
+```
+
+## Emergency Stop
+
+```text
+E_STOP
+```
+
+## Reset
+
+```text
+RESET
+```
+
+## Status
+
+```text
+STATUS
+```
+
+The firmware maintains servo limits and checks the emergency-stop/interlock state.
+
+The firmware does not provide an autonomous hazardous laser-firing command.
+
+---
+
+# 27. Serial Configuration
+
+The configuration contains:
+
+```yaml
+hardware:
+  mode: simulation
+  serial_port: COM3
+  baudrate: 115200
+```
+
+For a safe ESP32 hardware demonstration, change the serial port to the correct device.
+
+Example:
+
+```yaml
+hardware:
+  mode: serial
+  serial_port: COM5
+  baudrate: 115200
+```
+
+The exact COM port depends on the connected ESP32.
+
+On Linux the device may appear as:
+
+```text
+/dev/ttyUSB0
+```
+
+or:
+
+```text
+/dev/ttyACM0
+```
+
+---
+
+# 28. Verification
+
+The verification module is implemented in:
+
+```text
+src/weedlaser/verification.py
+```
+
+The current implementation performs **temporal visual verification** using changes in detection confidence across frames.
+
+It should therefore be interpreted as:
+
+```text
+Visual confidence-based verification
+```
+
+and **not** as proof that a physical weed has been destroyed.
+
+The current architecture does not claim physical treatment effectiveness.
+
+A future validated implementation could replace or extend this module with an experimentally validated post-treatment visual assessment model.
+
+---
+
+# 29. Event Logging
+
+The logging system is implemented in:
+
+```text
+src/weedlaser/logger.py
+```
+
+Events contain information such as:
+
+```text
+Timestamp
+Class ID
+Class name
+Confidence
+Target X
+Target Y
+Pan
+Tilt
+Crop exclusion state
+Safety state
+Verification state
+```
+
+The logging directory is configured through:
+
+```yaml
+logging:
+  directory: logs
+```
+
+The resulting logs can be used for:
+
+- Debugging
+- System evaluation
+- Safety analysis
+- Targeting accuracy analysis
+- Experiment reporting
+- Reproducibility
+
+---
+
+# 30. Automated Testing
+
+Run the complete test suite with:
+
+```powershell
+pytest -q
+```
+
+The tests cover core functionality including:
+
+- Detection representation
+- Target selection
+- Tracker stability
+- Tracker movement rejection
+- Tracker timeout
+- Servo mapping
+- Servo clipping
+- Crop exclusion
+- Safety blocking
+- Safety-ready conditions
+- Verification behavior
+
+A successful run should report all tests passing.
+
+---
+
+# 31. Code Quality
+
+Ruff is configured in `pyproject.toml`.
+
+Run:
+
+```powershell
+ruff check src scripts tests
+```
+
+The project targets:
+
+```text
+Python >= 3.10
+```
+
+with a configured line length of:
+
+```text
+100 characters
+```
+
+---
+
+# 32. Recommended Validation Procedure
+
+Before the final project demonstration, perform validation in the following order.
+
+## Step 1 — Unit Tests
+
+```powershell
+pytest -q
+```
+
+Expected:
+
+```text
+All tests pass
+```
+
+## Step 2 — Code Quality
+
+```powershell
+ruff check src scripts tests
+```
+
+Expected:
+
+```text
+No linting errors
+```
+
+## Step 3 — Dataset Validation
+
+Verify:
+
+```text
+4659 training images
+998 validation images
+999 test images
+15 classes
+```
+
+## Step 4 — Model Evaluation
+
+Run:
+
+```powershell
+python scripts/evaluate_detector.py `
+    --weights runs/weed_detector_final/weights/best.pt `
+    --data data/yolo/dataset.yaml `
+    --device 0 `
+    --imgsz 640
+```
+
+Record:
+
+```text
+Precision
+Recall
+mAP@0.50
+mAP@0.50:0.95
+```
+
+## Step 5 — Single Image Prediction
+
+Test several images from:
+
+```text
+data/yolo/images/test/
+```
+
+## Step 6 — Video Test
+
+Run the detector on a recorded video.
+
+## Step 7 — Camera Test
+
+Run:
+
+```powershell
+python -m src.weedlaser.main `
+    --weights runs/weed_detector_final/weights/best.pt `
+    --source 0 `
+    --config configs/config.yaml
+```
+
+## Step 8 — Hardware Simulation
+
+Verify that pan/tilt commands are generated correctly without connecting a hazardous actuator.
+
+## Step 9 — ESP32 Safe Demonstration
+
+Connect only approved low-risk hardware such as:
+
+- Servo motors
+- Safe LED/indicator
+- E-stop
+- Interlock input
+
+## Step 10 — Logging
+
+Verify that runtime events are written to the configured logging directory.
+
+---
+
+# 33. Demonstration Scenarios
+
+## Demonstration 1 — Weed Detection
+
+```text
+Camera
+  ↓
+YOLO
+  ↓
+Bounding Box
+  ↓
+Class Name + Confidence
+```
+
+Demonstrate:
+
+- Weed detection
+- Class identification
+- Confidence score
+
+---
+
+## Demonstration 2 — Target Tracking
+
+```text
+Detection
+    ↓
+Frame-to-frame tracking
+    ↓
+Stable target
+```
+
+Demonstrate:
+
+- Stable target acquisition
+- Movement rejection
+- Target timeout
+
+---
+
+## Demonstration 3 — Target Localization
+
+```text
+Bounding Box
+     ↓
+Center Point
+     ↓
+Pixel Coordinates
+     ↓
+Pan/Tilt Angles
+```
+
+Demonstrate:
+
+- Target point calculation
+- Servo angle calculation
+- Servo range clipping
+
+---
+
+## Demonstration 4 — Crop Safety
+
+Configure a crop polygon and demonstrate:
+
+```text
+Target outside crop zone
+        ↓
+Potentially eligible
+```
+
+versus:
+
+```text
+Target inside crop zone
+        ↓
+BLOCKED
+```
+
+---
+
+## Demonstration 5 — Safety Gate
+
+Demonstrate that the system blocks authorization when:
+
+- Confidence is too low
+- Target is unstable
+- Target is inside a crop zone
+- E-stop is active
+- Interlock is open
+- Treatment is disabled
+
+---
+
+## Demonstration 6 — End-to-End Safe Pipeline
+
+```text
+Camera
+  ↓
+YOLO Detection
+  ↓
+Target Selection
+  ↓
+Tracking
+  ↓
+Crop Check
+  ↓
+Localization
+  ↓
+Safety Gate
+  ↓
+Pan/Tilt Simulation
+  ↓
+Temporal Verification
+  ↓
+Logging
+```
+
+This is the recommended final software demonstration.
+
+---
+
+# 34. Research Experiments
+
+The system can be evaluated using controlled experiments.
+
+## Experiment 1 — Detection Performance
+
+Measure:
+
+```text
+Precision
+Recall
+mAP@0.50
+mAP@0.50:0.95
+```
+
+---
+
+## Experiment 2 — Model Comparison
+
+Compare:
+
+```text
+YOLOv8n
+YOLOv8s
+```
+
+under the same dataset split and evaluation protocol.
+
+---
+
+## Experiment 3 — Targeting Strategy
+
+Compare:
+
+```text
+Bounding-box center
+```
+
+against a future:
+
+```text
+Stem/target-point estimator
+```
+
+---
+
+## Experiment 4 — Target Stability
+
+Evaluate:
+
+```text
+Static target
+Moving target
+Partially occluded target
+```
+
+---
+
+## Experiment 5 — Lighting
+
+Evaluate detection under:
+
+```text
+Bright illumination
+Normal illumination
+Low illumination
+Uneven illumination
+```
+
+---
+
+## Experiment 6 — Camera Distance
+
+Evaluate different camera-to-ground distances.
+
+Record:
+
+```text
+Detection confidence
+Detection accuracy
+Localization error
+Targeting success
+```
+
+---
+
+## Experiment 7 — Weed Density
+
+Evaluate:
+
+```text
+Single weed
+Low-density weeds
+Medium-density weeds
+High-density weeds
+```
+
+---
+
+# 35. Recommended System Metrics
+
+The following metrics can be reported in the final project evaluation.
+
+## Detection
+
+```text
+Precision
+Recall
+mAP@0.50
+mAP@0.50:0.95
+```
+
+## Runtime
+
+```text
+Inference latency
+Frames per second
+Target acquisition time
+```
+
+## Targeting
+
+```text
+Pixel localization error
+Pan error
+Tilt error
+Physical targeting error
+```
+
+## Safety
+
+```text
+False authorization rate
+Crop false-positive rate
+Target rejection rate
+E-stop response
+Interlock rejection rate
+```
+
+## System
+
+```text
+Successful target rate
+End-to-end latency
+System uptime
+Logging reliability
+```
+
+---
+
+# 36. Calibration Experiment
+
+Before reporting physical targeting accuracy, calibrate the camera-to-servo relationship.
+
+A recommended calibration procedure is:
+
+```text
+1. Place a known visual target.
+2. Detect the target.
+3. Record its image coordinates.
+4. Determine the correct pan angle.
+5. Determine the correct tilt angle.
+6. Repeat for multiple image positions.
+7. Fit calibration coefficients.
+8. Validate on previously unseen target positions.
+```
+
+Record the results in:
+
+```text
+docs/EXPERIMENTS.md
+```
+
+Do not report simulated localization values as physical targeting accuracy.
+
+---
+
+# 37. Model Export
+
+The repository includes:
+
+```text
+scripts/export_model.py
+```
+
+Example ONNX export:
+
+```powershell
+python scripts/export_model.py `
+    --weights runs/weed_detector_final/weights/best.pt `
+    --format onnx `
+    --imgsz 640
+```
+
+Other supported export formats depend on the installed Ultralytics environment.
+
+---
+
+# 38. Reproducibility
+
+For reproducible experiments, record:
+
+```text
+Dataset version
+Dataset split
+Random seed
+Model architecture
+Initial weights
+Epochs
+Image size
+Batch size
+Device
+Confidence threshold
+IoU threshold
+Calibration values
+Software versions
+Evaluation results
+```
+
+The dataset preparation script uses:
+
+```text
+seed = 42
+```
+
+unless another seed is explicitly provided.
+
+---
+
+# 39. Limitations
+
+The current implementation has several important limitations.
+
+### 1. Fifteen-class subset
+
+The current prepared dataset contains 15 classes rather than all 16 classes from MH-Weed16.
+
+### 2. Bounding-box target point
+
+The target point is currently estimated using the bounding-box center.
+
+This does not guarantee that the center corresponds to the biologically optimal treatment point of the weed.
+
+### 3. Calibration
+
+The default calibration values are initial configuration values and should be replaced by experimentally measured calibration parameters for a physical prototype.
+
+### 4. Crop exclusion
+
+Crop protection depends on correctly calibrated crop-exclusion polygons.
+
+### 5. Verification
+
+The current verification module performs temporal visual confidence comparison. It does not constitute validated physical treatment-success detection.
+
+### 6. Environmental robustness
+
+Performance may change with:
+
+- Lighting
+- Camera height
+- Camera angle
+- Weed scale
+- Occlusion
+- Background complexity
+- Motion blur
+- Weed density
+
+### 7. Hazardous treatment
+
+The reference implementation does not autonomously activate a hazardous laser.
+
+Any future treatment hardware would require a separately engineered and independently validated safety system.
+
+---
+
+# 40. Safety and Responsible Use
+
+This project concerns a robotic system that could potentially be connected to an optical treatment actuator.
+
+The repository therefore uses a conservative design.
+
+The default configuration contains:
+
+```yaml
+emergency_stop: true
+interlock_closed: false
+treatment_enabled: false
+```
+
+The reference implementation uses safe simulation/indicator interfaces rather than autonomous hazardous laser activation.
+
+For any future physical treatment integration, appropriate engineering controls must be established before operation, including:
+
+- Beam containment/enclosure
+- Hardware interlock
+- Emergency stop
+- Controlled test environment
+- Appropriate protective equipment
+- Supervision
+- Independent hardware safety mechanisms
+- Controlled access to the test area
+
+The software safety gate should not be treated as the only safety mechanism.
+
+> **Never test an exposed high-power optical source on an open bench or in an occupied environment.**
+
+---
+
+# 41. Project Development Workflow
+
+Recommended development workflow:
+
+```text
+Dataset
+   ↓
+Dataset Validation
+   ↓
+YOLO Training
+   ↓
+Test Evaluation
+   ↓
+Single Image Testing
+   ↓
+Video Testing
+   ↓
+Live Camera Testing
+   ↓
+Simulation
+   ↓
+Safe Servo Demonstration
+   ↓
+Safety Validation
+   ↓
+Experiment Logging
+   ↓
+Final Evaluation
+```
+
+This separates computer-vision validation from physical hardware validation.
+
+---
+
+# 42. Troubleshooting
+
+## Camera does not open
+
+Check:
+
+```text
+--source 0
+```
+
+Try another camera index:
+
+```powershell
+--source 1
+```
+
+Also verify that another application is not using the camera.
+
+---
+
+## Model file not found
+
+Check:
+
+```text
+runs/weed_detector_final/weights/best.pt
+```
+
+Use the actual path generated by the training run.
+
+On Windows, prefer forward slashes or correctly escaped paths when passing paths through Python.
+
+Example:
+
+```text
+runs/weed_detector_final/weights/best.pt
+```
+
+---
+
+## CUDA is unavailable
+
+Check:
+
+```powershell
+python -c "import torch; print(torch.cuda.is_available())"
+```
+
+If it returns:
+
+```text
+False
+```
+
+verify the installed PyTorch build and NVIDIA driver.
+
+---
+
+## Dataset preparation fails
+
+Check that the supplied MH-Weed16 root contains the expected directory structure.
+
+The preparation script validates:
+
+- Image directory
+- Annotation directory
+- Image/label matching
+- YOLO annotation format
+- Class IDs
+- Normalized coordinates
+
+---
+
+## No detections
+
+Check:
+
+```text
+Model weights
+Confidence threshold
+Dataset class mapping
+Image quality
+Camera resolution
+Lighting
+```
+
+Try lowering the confidence threshold temporarily for debugging, but do not automatically use a lower threshold in the final safety configuration.
+
+---
+
+## Safety state remains BLOCKED
+
+This is expected with the default configuration.
+
+The default configuration contains:
+
+```yaml
+emergency_stop: true
+interlock_closed: false
+treatment_enabled: false
+```
+
+The purpose is to keep the reference system fail-safe.
+
+The safety module can be tested independently using the unit tests.
+
+---
+
+# 43. Academic Evaluation
+
+For the final project report, the implementation can be evaluated at four levels.
+
+## Level 1 — Detection
+
+```text
+Can the system identify weeds?
+```
+
+## Level 2 — Targeting
+
+```text
+Can the system identify and localize a stable target?
+```
+
+## Level 3 — Safety
+
+```text
+Can the system correctly reject unsafe targets?
+```
+
+## Level 4 — Integrated System
+
+```text
+Can the complete pipeline operate from camera input
+through targeting, safety evaluation, hardware simulation,
+verification, and logging?
+```
+
+This separation makes it possible to evaluate the computer-vision, robotics, and safety components independently.
+
+---
+
+# 44. Expected Final Demonstration
+
+The recommended final demonstration should show:
+
+```text
+1. Camera input
+       ↓
+2. YOLO weed detection
+       ↓
+3. Weed class identification
+       ↓
+4. Target selection
+       ↓
+5. Temporal stabilization
+       ↓
+6. Crop exclusion
+       ↓
+7. Pixel-to-pan/tilt conversion
+       ↓
+8. Safety state evaluation
+       ↓
+9. Servo/simulation command
+       ↓
+10. Temporal visual verification
+       ↓
+11. Event logging
+```
+
+The demonstration should emphasize that the system makes a **safety-gated targeting decision**, rather than claiming validated autonomous physical weed destruction.
+
+---
+
+# 45. Future Improvements
+
+Potential extensions include:
+
+1. Add the missing Punarnava class after obtaining and validating appropriate annotations.
+2. Train a larger YOLO model such as YOLOv8s.
+3. Add a dedicated weed stem/target-point model.
+4. Improve camera calibration.
+5. Add depth sensing.
+6. Add 3D camera-to-ground localization.
+7. Improve crop segmentation.
+8. Add more robust multi-object tracking.
+9. Add illumination normalization.
+10. Add real-time performance benchmarking.
+11. Add hardware-in-the-loop testing using only safe actuators.
+12. Improve visual post-action verification.
+13. Add experiment dashboards.
+14. Add automated dataset-quality checks.
+15. Add continuous integration for tests and linting.
+
+---
+
+# 46. Citation
+
+The project uses the MH-Weed16 dataset as the primary weed-detection dataset.
+
+When presenting or publishing results, cite the original MH-Weed16 dataset and its associated publication according to the citation information supplied by the dataset authors.
+
+Do not represent the current repository as a full 16-class implementation unless the missing class has actually been added, annotated, trained, and evaluated.
+
+---
+
+# 47. License
+
+This project is distributed under the license included in:
+
+```text
+LICENSE
+```
+
+The dataset remains subject to its own license and terms of use.
+
+---
+
+# 48. Quick Start
+
+For a clean setup, the complete workflow is:
+
+```powershell
+# 1. Create environment
+python -m venv .venv
+
+# 2. Activate environment
+.\.venv\Scripts\Activate.ps1
+
+# 3. Install dependencies
+python -m pip install --upgrade pip
+pip install -r requirements.txt
+pip install -r requirements-dev.txt
+
+# 4. Prepare dataset
+python scripts/prepare_dataset.py `
+    --dataset-root "C:\path\to\MH-Weed16" `
+    --output data/yolo `
+    --seed 42
+
+# 5. Train model
+python scripts/train_detector.py `
+    --data data/yolo/dataset.yaml `
+    --model yolov8n.pt `
+    --epochs 100 `
+    --imgsz 640 `
+    --batch 16 `
+    --device 0 `
+    --project runs `
+    --name weed_detector_final
+
+# 6. Evaluate model
+python scripts/evaluate_detector.py `
+    --weights runs/weed_detector_final/weights/best.pt `
+    --data data/yolo/dataset.yaml `
+    --device 0 `
+    --imgsz 640
+
+# 7. Run tests
+pytest -q
+
+# 8. Run linting
+ruff check src scripts tests
+
+# 9. Run live camera inference
+python -m src.weedlaser.main `
+    --weights runs/weed_detector_final/weights/best.pt `
+    --source 0 `
+    --config configs/config.yaml
+```
+
+---
+
+# 49. Final Project Status
+
+The current implementation provides a complete reference pipeline for:
+
+```text
+Weed Detection
+      +
+Target Selection
+      +
+Temporal Tracking
+      +
+Crop Exclusion
+      +
+Pixel-to-Servo Localization
+      +
+Safety Gating
+      +
+Safe Hardware Interface
+      +
+Temporal Visual Verification
+      +
+Event Logging
+      +
+Dataset Preparation
+      +
+Model Training
+      +
+Model Evaluation
+      +
+Automated Testing
+```
+
+The implementation is intentionally designed so that hazardous treatment activation is **not part of the default autonomous runtime**.
+
+The strongest claim supported by the current implementation is therefore:
+
+> **An autonomous vision-guided weed detection, targeting, tracking, safety-gating, pan/tilt-control, verification, and logging prototype using a 15-class subset of the MH-Weed16 dataset.**
+
+This accurately represents the implemented system while keeping the software architecture extensible for future controlled research.
+```
+
+## FILE: requirements.txt
+
+```text
+ultralytics>=8.3,<9
+opencv-python>=4.10
+numpy>=1.26,<3
+PyYAML>=6.0
+pyserial>=3.5
+Pillow>=10.0
+pandas>=2.0
+matplotlib>=3.8
+scikit-learn>=1.4
+tqdm>=4.66
+
+```
+
+## FILE: requirements-dev.txt
+
+```text
+-r requirements.txt
+pytest>=8.0
+ruff>=0.6
+
+```
+
+## FILE: pyproject.toml
+
+```text
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "autonomous-laser-weed-removal"
+version = "1.0.0"
+description = "Vision-guided precision weed targeting prototype using MH-Weed16."
+requires-python = ">=3.10"
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+```
+
+## FILE: LICENSE
+
+```text
+MIT License
+
+Copyright (c) 2026
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files, to deal in the Software
+without restriction, including without limitation the rights to use, copy,
+modify, merge, publish, distribute, sublicense, and/or sell copies of the Software,
+and to permit persons to whom the Software is furnished to do so, subject to the
+following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+```
+
+## FILE: configs\classes.txt
+
+```txt
+Kena
+Lavhala
+Lambs Quarter Plant
+Little Mallow
+Moti dudhi
+Obscure morning glory
+Asian pigeonwings
+Bilayat
+Choti dudhi
+Digitaria SP
+Gajar gavat
+Graceful sandmat
+Sicklepod
+Harali
+Dwarf cassia
+```
+
+## FILE: configs\config.yaml
+
+```yaml
+camera:
+  source: 0
+  width: 640
+  height: 480
+  fps: 30
+
+model:
+  confidence: 0.55
+  iou: 0.45
+  imgsz: 640
+  target_mode: bbox_center
+
+tracking:
+  enabled: true
+  required_stable_frames: 5
+  max_center_jump_px: 60
+  target_timeout_s: 1.0
+
+crop_exclusion:
+  enabled: true
+
+  # Polygon points are image coordinates.
+  #
+  # Example:
+  # zones:
+  #   - name: crop_zone_1
+  #     points:
+  #       - [0, 0]
+  #       - [200, 0]
+  #       - [200, 150]
+  #       - [0, 150]
+  #
+  # Empty zones mean that no crop exclusion polygon has been
+  # calibrated yet.
+  zones: []
+
+safety:
+  require_stable_target: true
+  minimum_confidence: 0.55
+  require_stationary: true
+
+  # Runtime software safety.
+  emergency_stop: true
+  interlock_closed: false
+
+  # Must remain false for the submitted reference implementation.
+  treatment_enabled: false
+
+hardware:
+  mode: simulation
+
+  # Serial configuration is retained for safe indicator hardware.
+  serial_port: COM3
+  baudrate: 115200
+
+  pan_min_deg: 20
+  pan_max_deg: 160
+
+  tilt_min_deg: 20
+  tilt_max_deg: 120
+
+  pan_center_deg: 90
+  tilt_center_deg: 70
+
+calibration:
+  camera_width_px: 640
+  camera_height_px: 480
+
+  pan_center_deg: 90
+  tilt_center_deg: 70
+
+  # Initial empirical calibration.
+  # Replace after physical calibration experiments.
+  pan_deg_per_px: 0.10
+  tilt_deg_per_px: 0.10
+
+verification:
+  enabled: true
+  verification_frames: 5
+  confidence_drop_threshold: 0.15
+
+logging:
+  directory: logs
+
+```
+
+## FILE: configs\mh_weed16.yaml
+
+```yaml
+# MH-Weed16 Version 1
+#
+# Current project model:
+# 15-class subset used for the prepared YOLO dataset.
+#
+# Punarnava (class 15) is part of the original MH-Weed16 dataset
+# but is not included in the current prepared training dataset.
+
+dataset:
+  source: MH-Weed16
+  version: 1
+  implemented_classes: 15
+
+names:
+  0: Kena
+  1: Lavhala
+  2: Lambs_Quarter_Plant
+  3: Little_Mallow
+  4: Moti_dudhi
+  5: Obscure_morning_glory
+  6: Asian_pigeon_wings
+  7: Bilayat
+  8: Choti_dudhi
+  9: Digitaria_SP
+  10: Gajar_gavat
+  11: Graceful_sandmat
+  12: Sicklepod
+  13: Harali
+  14: Dwarf_cassia
+
+```
+
+## FILE: data\README.md
+
+```markdown
+# Dataset directory
+
+Do not commit MH-Weed16 to GitHub.
+
+Download **MH-Weed16 Version 1** from:
+
+https://data.mendeley.com/datasets/d3n3mgjjbv/1
+
+The project expects the dataset to be supplied locally to `scripts/prepare_dataset.py`.
+
+Recommended workflow:
+
+```bash
+python scripts/prepare_dataset.py   --source /path/to/MH-Weed16   --output data/yolo   --classes configs/classes.txt
+```
+
+The source publication states that the crop-with-weed portion includes annotations in Pascal VOC, TXT and JSON formats.
+
+```
+
+## FILE: data\yolo\dataset.yaml
+
+```yaml
+path: C:\Users\rishi\RishiProjects\Autonomous_Laser_Weed_Removal\Autonomous-laser-weed-removal\data\yolo
+train: images/train
+val: images/val
+test: images/test
+
+nc: 15
+names:
+  0: 'Kena'
+  1: 'Lavhala'
+  2: 'Lambs Quarter Plant'
+  3: 'Little Mallow'
+  4: 'Moti dudhi'
+  5: 'Obscure morning glory'
+  6: 'Asian pigeonwings'
+  7: 'Bilayat'
+  8: 'Choti dudhi'
+  9: 'Digitaria SP'
+  10: 'Gajar gavat'
+  11: 'Graceful sandmat'
+  12: 'Sicklepod'
+  13: 'Harali'
+  14: 'Dwarf cassia'
+
+```
+
+## FILE: docs\ARCHITECTURE.md
+
+```markdown
+# System Architecture
+
+```text
+                         RGB CAMERA
+                             |
+                             v
+                    +-------------------+
+                    |   YOLO Detector   |
+                    +---------+---------+
+                              |
+                         detections
+                              |
+                              v
+                    +-------------------+
+                    | Target Selector   |
+                    +---------+---------+
+                              |
+                              v
+                    +-------------------+
+                    | Temporal Tracker  |
+                    +---------+---------+
+                              |
+                         stable target
+                              |
+                              v
+                    +-------------------+
+                    | Crop Exclusion    |
+                    | Safety Zones      |
+                    +---------+---------+
+                              |
+                              v
+                    +-------------------+
+                    | Target Localizer  |
+                    | BBox Center       |
+                    +---------+---------+
+                              |
+                              v
+                    +-------------------+
+                    | Pixel -> Pan/Tilt |
+                    | Calibration      |
+                    +---------+---------+
+                              |
+                              v
+                    +-------------------+
+                    | Software Safety   |
+                    | Gate              |
+                    +---------+---------+
+                              |
+                    +---------+---------+
+                    |                   |
+                  BLOCKED             READY
+                    |                   |
+                    v                   v
+                  SAFE OFF       SAFE INDICATOR
+                                        |
+                                        v
+                                  RE-IMAGE
+                                        |
+                                        v
+                                  VERIFICATION
+                                        |
+                                        v
+                                      LOG
+```
+
+## FILE: docs\EXPERIMENTS.md
+
+```markdown
+# Experiment Log
+
+Fill this file as experiments are completed.
+
+## Dataset
+
+- Dataset: MH-Weed16
+- Version: 1
+- Source:
+- Dataset checksum:
+- Number of images used:
+- Number of detection images:
+- Split:
+
+## Model baseline
+
+| Model | Image size | Epochs | Precision | Recall | mAP50 | mAP50-95 | FPS |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| YOLOv8n | | | | | | | |
+| YOLOv8s | | | | | | | |
+
+## Targeting
+
+| Method | Mean error (cm) | Median error (cm) | Success rate |
+|---|---:|---:|---:|
+| BBox center | | | |
+| Stem/target point | | | |
+
+## Safety
+
+Record the number of blocked treatment attempts for:
+
+- low confidence
+- unstable target
+- crop proximity
+- E-stop
+- interlock
+- treatment disabled
+
+## Field/bench validation
+
+Record lighting, camera height, target distance, weed density and environmental conditions for every run.
+
+Do not claim a treatment-success rate until it has been experimentally measured.
+
+```
+
+## FILE: docs\GITHUB_SUBMISSION.md
+
+```markdown
+# GitHub Submission Checklist
+
+Before pushing:
+
+- [ ] Dataset is not committed.
+- [ ] No API keys or passwords are present.
+- [ ] `pip install -r requirements.txt` works.
+- [ ] `pytest -q` passes.
+- [ ] A trained `best.pt` is available locally.
+- [ ] `scripts/train_detector.py` completes.
+- [ ] `scripts/evaluate_detector.py` completes.
+- [ ] Camera inference works in safe mode.
+- [ ] Targeting calibration has been measured rather than assumed.
+- [ ] Experimental metrics are entered into `docs/EXPERIMENTS.md`.
+- [ ] Final report cites MH-Weed16 Version 1 and its paper.
+- [ ] Hardware safety documentation is included.
+- [ ] Laser is not enabled by default.
+
+Recommended Git commands:
+
+```bash
+git add .
+git status
+git commit -m "Initial submission-ready implementation"
+git branch -M main
+git push -u origin main
+```
+
+```
+
+## FILE: docs\SOURCES.md
+
+```markdown
+# Project Sources
+
+1. MH-Weed16 Version 1  
+   https://data.mendeley.com/datasets/d3n3mgjjbv/1
+
+2. Dataset paper  
+   https://www.sciencedirect.com/science/article/pii/S2352340925004214
+
+3. Kaggle MH-Weed16 dataset  
+   https://www.kaggle.com/datasets/sayalis069/mh-weed16
+
+4. User-provided Kaggle notebook reference  
+   https://www.kaggle.com/code/ayushtiwari2323/weed-detection-using-cnn
+
+5. Public dataset scripts referenced by the MH-Weed16 paper  
+   https://github.com/SPS-Dataset/MH-Weed16
+
+```
+
+## FILE: extract_project_prompt.py
+
+```python
+from pathlib import Path
+from collections import Counter
+import subprocess
+import argparse
+
+
+# Files/directories that should NOT be included in the GPT prompt
+EXCLUDED_DIRS = {
+    ".git",
+    ".venv",
+    "venv",
+    "__pycache__",
+    ".pytest_cache",
+    ".mypy_cache",
+    "node_modules",
+    "runs",
+    "models",
+    "labels",
+}
+
+EXCLUDED_EXTENSIONS = {
+    ".pt",
+    ".pth",
+    ".onnx",
+    ".engine",
+    ".bin",
+    ".jpg",
+    ".jpeg",
+    ".png",
+    ".webp",
+    ".mp4",
+    ".avi",
+    ".mov",
+}
+
+IMPORTANT_EXTENSIONS = {
+    ".py",
+    ".yaml",
+    ".yml",
+    ".md",
+    ".txt",
+    ".json",
+    ".toml",
+    ".ini",
+    ".cfg",
+    ".xml",
+    ".ino",
+    ".sh",
+    ".ps1",
+}
+
+
+def safe_read(path: Path, max_chars=200_000):
+    """Read a text file safely."""
+    try:
+        text = path.read_text(encoding="utf-8", errors="ignore")
+
+        if len(text) > max_chars:
+            text = text[:max_chars] + "\n\n[FILE TRUNCATED]\n"
+
+        return text
+    except Exception as e:
+        return f"[Could not read file: {e}]"
+
+
+def get_git_info(root: Path):
+    """Get basic Git information."""
+    try:
+        branch = subprocess.check_output(
+            ["git", "-C", str(root), "branch", "--show-current"],
+            text=True,
+            stderr=subprocess.DEVNULL,
+        ).strip()
+
+        commit = subprocess.check_output(
+            ["git", "-C", str(root), "rev-parse", "--short", "HEAD"],
+            text=True,
+            stderr=subprocess.DEVNULL,
+        ).strip()
+
+        return f"Branch: {branch}\nCommit: {commit}"
+
+    except Exception:
+        return "Git information unavailable."
+
+
+def extract_dataset_info(project_root: Path):
+    """Extract information from prepared YOLO dataset."""
+
+    data_root = project_root / "data" / "yolo"
+
+    lines = []
+
+    if not data_root.exists():
+        return "[Prepared YOLO dataset not found]"
+
+    lines.append("## PREPARED YOLO DATASET")
+    lines.append("")
+
+    # dataset.yaml
+    yaml_path = data_root / "dataset.yaml"
+
+    if yaml_path.exists():
+        lines.append("### dataset.yaml")
+        lines.append("```yaml")
+        lines.append(safe_read(yaml_path))
+        lines.append("```")
+        lines.append("")
+
+    # Count images
+    for split in ["train", "val", "test"]:
+        image_dir = data_root / "images" / split
+        label_dir = data_root / "labels" / split
+
+        image_count = len(list(image_dir.glob("*"))) if image_dir.exists() else 0
+
+        label_count = len(list(label_dir.glob("*.txt"))) if label_dir.exists() else 0
+
+        lines.append(f"{split}: {image_count} images, {label_count} label files")
+
+    lines.append("")
+
+    # Class distribution
+    class_counts = Counter()
+
+    for split in ["train", "val", "test"]:
+        label_dir = data_root / "labels" / split
+
+        if not label_dir.exists():
+            continue
+
+        for label_file in label_dir.glob("*.txt"):
+            try:
+                for line in label_file.read_text(
+                    encoding="utf-8",
+                    errors="ignore",
+                ).splitlines():
+                    parts = line.strip().split()
+
+                    if len(parts) == 5:
+                        class_counts[int(parts[0])] += 1
+
+            except Exception:
+                continue
+
+    lines.append("### Annotation class distribution")
+    lines.append("")
+
+    for class_id in sorted(class_counts):
+        lines.append(f"Class {class_id}: {class_counts[class_id]} annotations")
+
+    lines.append("")
+
+    # Sample annotations
+    lines.append("### Sample YOLO annotations")
+    lines.append("")
+
+    sample_labels = list((data_root / "labels" / "train").glob("*.txt"))[:10]
+
+    for label_file in sample_labels:
+        lines.append(f"#### {label_file.name}")
+        lines.append("```text")
+        lines.append(safe_read(label_file, max_chars=10_000))
+        lines.append("```")
+        lines.append("")
+
+    return "\n".join(lines)
+
+
+def extract_project_files(project_root: Path):
+    """Extract relevant project files."""
+
+    sections = []
+
+    # Prioritize important project files
+    priority_files = [
+        "README.md",
+        "requirements.txt",
+        "requirements-dev.txt",
+        "pyproject.toml",
+        "LICENSE",
+    ]
+
+    for filename in priority_files:
+        path = project_root / filename
+
+        if path.exists():
+            sections.append(f"\n## FILE: {path.relative_to(project_root)}\n")
+            sections.append("```text")
+            sections.append(safe_read(path))
+            sections.append("```")
+
+    # Walk project
+    for path in sorted(project_root.rglob("*")):
+        if not path.is_file():
+            continue
+
+        relative = path.relative_to(project_root)
+
+        # Skip excluded directories
+        if any(part in EXCLUDED_DIRS for part in relative.parts):
+            continue
+
+        # Skip excluded extensions
+        if path.suffix.lower() in EXCLUDED_EXTENSIONS:
+            continue
+
+        # Only include useful text files
+        if path.suffix.lower() not in IMPORTANT_EXTENSIONS:
+            continue
+
+        # Avoid duplicating priority files
+        if str(relative) in priority_files:
+            continue
+
+        # Skip generated dataset images
+        if "data" in relative.parts and "images" in relative.parts:
+            continue
+
+        # Skip massive generated files
+        try:
+            if path.stat().st_size > 500_000:
+                continue
+        except Exception:
+            continue
+
+        sections.append(f"\n## FILE: {relative}\n")
+
+        language = path.suffix.lower().replace(".", "")
+
+        if language == "py":
+            language = "python"
+        elif language in {"yaml", "yml"}:
+            language = "yaml"
+        elif language == "md":
+            language = "markdown"
+        elif language == "ino":
+            language = "cpp"
+
+        sections.append(f"```{language}")
+        sections.append(safe_read(path))
+        sections.append("```")
+
+    return "\n".join(sections)
+
+
+def build_prompt(project_root: Path):
+
+    prompt = []
+
+    prompt.append("# GPT PROJECT CONTEXT\n")
+
+    prompt.append(
+        "You are assisting with the following software/robotics project. "
+        "Use the provided project files and dataset information as the "
+        "primary source of truth.\n"
+    )
+
+    prompt.append(
+        "Do not invent files, functionality, configurations, dataset "
+        "properties, or implementation details that are not supported "
+        "by the extracted project context.\n"
+    )
+
+    prompt.append(
+        "When proposing code changes, preserve the existing architecture "
+        "unless there is a clear reason to modify it.\n"
+    )
+
+    prompt.append("## PROJECT ROOT\n")
+
+    prompt.append(str(project_root.resolve()))
+
+    prompt.append("\n\n## GIT INFORMATION\n")
+    prompt.append(get_git_info(project_root))
+
+    prompt.append("\n\n")
+    prompt.append(extract_dataset_info(project_root))
+
+    prompt.append("\n\n")
+    prompt.append("## PROJECT FILES\n")
+    prompt.append(extract_project_files(project_root))
+
+    return "\n".join(prompt)
+
+
+def main():
+
+    parser = argparse.ArgumentParser(
+        description=(
+            "Extract project source, configuration, documentation, "
+            "and dataset metadata into a GPT-ready prompt."
+        )
+    )
+
+    parser.add_argument(
+        "--root",
+        default=".",
+        help="Project root directory",
+    )
+
+    parser.add_argument(
+        "--output",
+        default="GPT_PROJECT_PROMPT.txt",
+        help="Output prompt file",
+    )
+
+    args = parser.parse_args()
+
+    root = Path(args.root).resolve()
+    output = Path(args.output).resolve()
+
+    print(f"Project root: {root}")
+    print("Extracting project information...")
+
+    prompt = build_prompt(root)
+
+    output.write_text(
+        prompt,
+        encoding="utf-8",
+    )
+
+    print()
+    print("Extraction complete.")
+    print(f"Output: {output}")
+    print(f"Characters: {len(prompt):,}")
+    print(f"Approx. tokens: {len(prompt) // 4:,}")
+
+
+if __name__ == "__main__":
+    main()
+
+```
+
+## FILE: firmware\esp32\weed_target_controller.ino
+
+```cpp
+/*
+  Safe pan/tilt controller for the precision-weeding prototype.
+
+  Reference submission mode:
+    - PAN / TILT control
+    - SAFE INDICATOR
+    - E-stop input
+    - Physical interlock input
+
+  No hazardous treatment command is implemented.
+
+  The indicator output must only be connected to a safe
+  LED/indicator circuit.
+*/
+
+#include <Arduino.h>
+#include <Servo.h>
+
+Servo panServo;
+Servo tiltServo;
+
+constexpr int PAN_PIN = 18;
+constexpr int TILT_PIN = 19;
+
+constexpr int INDICATOR_PIN = 23;
+
+constexpr int ESTOP_PIN = 27;
+constexpr int INTERLOCK_PIN = 26;
+
+constexpr int PAN_MIN = 20;
+constexpr int PAN_MAX = 160;
+
+constexpr int TILT_MIN = 20;
+constexpr int TILT_MAX = 120;
+
+bool indicatorCommand = false;
+
+void indicatorOff()
+{
+  indicatorCommand = false;
+  digitalWrite(
+      INDICATOR_PIN,
+      LOW);
+}
+
+bool hardwareSafe()
+{
+  bool estopActive =
+      digitalRead(ESTOP_PIN) == LOW;
+
+  bool enclosureClosed =
+      digitalRead(INTERLOCK_PIN) == HIGH;
+
+  return (
+      !estopActive && enclosureClosed);
+}
+
+void applyIndicatorState()
+{
+  if (
+      indicatorCommand && hardwareSafe())
+  {
+    digitalWrite(
+        INDICATOR_PIN,
+        HIGH);
+  }
+  else
+  {
+    digitalWrite(
+        INDICATOR_PIN,
+        LOW);
+  }
+}
+
+void handleCommand(
+    String line)
+{
+  line.trim();
+
+  if (line.startsWith("PAN "))
+  {
+    float value =
+        line.substring(4).toFloat();
+
+    value = constrain(
+        value,
+        PAN_MIN,
+        PAN_MAX);
+
+    panServo.write(
+        (int)value);
+
+    return;
+  }
+
+  if (line.startsWith("TILT "))
+  {
+    float value =
+        line.substring(5).toFloat();
+
+    value = constrain(
+        value,
+        TILT_MIN,
+        TILT_MAX);
+
+    tiltServo.write(
+        (int)value);
+
+    return;
+  }
+
+  if (line == "INDICATOR ON")
+  {
+    indicatorCommand = true;
+    applyIndicatorState();
+    return;
+  }
+
+  if (line == "INDICATOR OFF")
+  {
+    indicatorOff();
+    return;
+  }
+
+  if (line == "E_STOP")
+  {
+    indicatorOff();
+    return;
+  }
+
+  if (line == "RESET")
+  {
+    indicatorOff();
+    return;
+  }
+
+  if (line == "STATUS")
+  {
+    Serial.print("SAFE=");
+    Serial.print(
+        hardwareSafe()
+            ? "1"
+            : "0");
+
+    Serial.print(
+        " INDICATOR=");
+
+    Serial.println(
+        indicatorCommand
+            ? "1"
+            : "0");
+  }
+}
+
+void setup()
+{
+  Serial.begin(115200);
+
+  pinMode(
+      INDICATOR_PIN,
+      OUTPUT);
+
+  pinMode(
+      ESTOP_PIN,
+      INPUT_PULLUP);
+
+  pinMode(
+      INTERLOCK_PIN,
+      INPUT_PULLUP);
+
+  indicatorOff();
+
+  panServo.attach(PAN_PIN);
+  tiltServo.attach(TILT_PIN);
+
+  panServo.write(90);
+  tiltServo.write(70);
+}
+
+void loop()
+{
+  if (Serial.available())
+  {
+    String line =
+        Serial.readStringUntil('\n');
+
+    handleCommand(line);
+  }
+
+  // Hardware safety continuously
+  // dominates software state.
+  applyIndicatorState();
+
+  delay(5);
+}
+```
+
+## FILE: GPT_PROJECT_PROMPT.txt
+
+```txt
+# GPT PROJECT CONTEXT
+
+You are assisting with the following software/robotics project. Use the provided project files and dataset information as the primary source of truth.
+
+Do not invent files, functionality, configurations, dataset properties, or implementation details that are not supported by the extracted project context.
+
+When proposing code changes, preserve the existing architecture unless there is a clear reason to modify it.
+
+## PROJECT ROOT
+
+C:\Users\rishi\RishiProjects\Autonomous_Laser_Weed_Removal\Autonomous-laser-weed-removal
+
+
+## GIT INFORMATION
+
+Branch: main
 Commit: 27cfa79
 
 
@@ -3954,6 +7297,2000 @@ def test_safety_ready():
         stationary=True,
     )
     assert gate.evaluate(inputs) == SafetyState.READY
+
+```
+```
+
+## FILE: scripts\evaluate_detector.py
+
+```python
+from __future__ import annotations
+
+import argparse
+
+from ultralytics import YOLO
+
+
+def main():
+
+    parser = argparse.ArgumentParser(description="Evaluate trained weed detector")
+
+    parser.add_argument(
+        "--weights",
+        required=True,
+    )
+
+    parser.add_argument(
+        "--data",
+        required=True,
+    )
+
+    parser.add_argument(
+        "--device",
+        default="0",
+    )
+
+    parser.add_argument(
+        "--imgsz",
+        type=int,
+        default=640,
+    )
+
+    args = parser.parse_args()
+
+    model = YOLO(args.weights)
+
+    metrics = model.val(
+        data=args.data,
+        split="test",
+        imgsz=args.imgsz,
+        device=args.device,
+        plots=True,
+        verbose=True,
+    )
+
+    print()
+    print("========== FINAL TEST RESULTS ==========")
+
+    print(f"mAP@0.50: {metrics.box.map50:.4f}")
+
+    print(f"mAP@0.50:0.95: {metrics.box.map:.4f}")
+
+    print(f"Precision: {metrics.box.mp:.4f}")
+
+    print(f"Recall: {metrics.box.mr:.4f}")
+
+
+if __name__ == "__main__":
+    main()
+
+```
+
+## FILE: scripts\export_model.py
+
+```python
+from __future__ import annotations
+
+import argparse
+from ultralytics import YOLO
+
+
+def main():
+    p = argparse.ArgumentParser()
+    p.add_argument("--weights", required=True)
+    p.add_argument("--format", default="onnx", choices=["onnx", "openvino", "engine"])
+    p.add_argument("--imgsz", type=int, default=640)
+    args = p.parse_args()
+
+    model = YOLO(args.weights)
+    path = model.export(format=args.format, imgsz=args.imgsz)
+    print(f"Exported model: {path}")
+
+
+if __name__ == "__main__":
+    main()
+
+```
+
+## FILE: scripts\prepare_dataset.py
+
+```python
+from __future__ import annotations
+
+import argparse
+import random
+import shutil
+from pathlib import Path
+
+
+CLASS_NAMES = [
+    "Kena",
+    "Lavhala",
+    "Lambs Quarter Plant",
+    "Little Mallow",
+    "Moti dudhi",
+    "Obscure morning glory",
+    "Asian pigeonwings",
+    "Bilayat",
+    "Choti dudhi",
+    "Digitaria SP",
+    "Gajar gavat",
+    "Graceful sandmat",
+    "Sicklepod",
+    "Harali",
+    "Dwarf cassia",
+]
+
+
+def validate_yolo_label(
+    label_path: Path,
+) -> None:
+
+    for line_number, line in enumerate(
+        label_path.read_text(encoding="utf-8").splitlines(),
+        start=1,
+    ):
+        line = line.strip()
+
+        if not line:
+            continue
+
+        parts = line.split()
+
+        if len(parts) != 5:
+            raise ValueError(f"Invalid annotation in {label_path} line {line_number}: {line}")
+
+        try:
+            class_id = int(parts[0])
+        except ValueError as exc:
+            raise ValueError(f"Invalid class ID in {label_path} line {line_number}") from exc
+
+        if not (0 <= class_id < len(CLASS_NAMES)):
+            raise ValueError(f"Invalid class ID {class_id} in {label_path}")
+
+        values = [float(value) for value in parts[1:]]
+
+        if not all(0.0 <= value <= 1.0 for value in values):
+            raise ValueError(f"Coordinates outside [0,1] in {label_path}")
+
+
+def main():
+
+    parser = argparse.ArgumentParser(
+        description=("Prepare the 15-class MH-Weed16 subset for YOLO training.")
+    )
+
+    parser.add_argument(
+        "--dataset-root",
+        required=True,
+    )
+
+    parser.add_argument(
+        "--output",
+        default="data/yolo",
+    )
+
+    parser.add_argument(
+        "--seed",
+        type=int,
+        default=42,
+    )
+
+    args = parser.parse_args()
+
+    root = Path(args.dataset_root).resolve()
+
+    output = Path(args.output).resolve()
+
+    image_dir = (
+        root / "Crop with Weeds" / "intel Real Sense Depth_Clicks" / "intel Real Sense Depth_Clicks"
+    )
+
+    label_dir = (
+        root
+        / "Crop with Weeds"
+        / "intel Real Sense Depth_Annotations"
+        / "intel Real Sense Depth_Annotations"
+        / "YOLO_darknet"
+    )
+
+    if not image_dir.exists():
+        raise FileNotFoundError(f"Image directory not found: {image_dir}")
+
+    if not label_dir.exists():
+        raise FileNotFoundError(f"Label directory not found: {label_dir}")
+
+    labels = sorted(label_dir.glob("*.txt"))
+
+    if not labels:
+        raise RuntimeError("No YOLO annotation files found.")
+
+    pairs = []
+
+    for label in labels:
+        image = image_dir / f"{label.stem}.jpeg"
+
+        if not image.exists():
+            raise RuntimeError(f"Missing image for label: {label.name}")
+
+        validate_yolo_label(label)
+
+        pairs.append((image, label))
+
+    print(f"Found {len(pairs)} image/label pairs.")
+
+    random.seed(args.seed)
+
+    random.shuffle(pairs)
+
+    total = len(pairs)
+
+    train_end = int(total * 0.70)
+
+    val_end = train_end + int(total * 0.15)
+
+    splits = {
+        "train": pairs[:train_end],
+        "val": pairs[train_end:val_end],
+        "test": pairs[val_end:],
+    }
+
+    if output.exists():
+        print(f"Removing existing dataset: {output}")
+
+        shutil.rmtree(output)
+
+    for split in splits:
+        (output / "images" / split).mkdir(
+            parents=True,
+            exist_ok=True,
+        )
+
+        (output / "labels" / split).mkdir(
+            parents=True,
+            exist_ok=True,
+        )
+
+    for split, split_pairs in splits.items():
+        for image, label in split_pairs:
+            shutil.copy2(
+                image,
+                output / "images" / split / image.name,
+            )
+
+            shutil.copy2(
+                label,
+                output / "labels" / split / label.name,
+            )
+
+    yaml_lines = [
+        f"path: {output}",
+        "train: images/train",
+        "val: images/val",
+        "test: images/test",
+        "",
+        f"nc: {len(CLASS_NAMES)}",
+        "names:",
+    ]
+
+    for index, name in enumerate(CLASS_NAMES):
+        yaml_lines.append(f"  {index}: '{name}'")
+
+    (output / "dataset.yaml").write_text(
+        "\n".join(yaml_lines) + "\n",
+        encoding="utf-8",
+    )
+
+    print()
+    print("Dataset prepared successfully.")
+
+    print(f"Train: {len(splits['train'])}")
+
+    print(f"Val:   {len(splits['val'])}")
+
+    print(f"Test:  {len(splits['test'])}")
+
+    print(f"Total: {total}")
+
+    print(f"Output: {output}")
+
+    print(f"Classes: {len(CLASS_NAMES)}")
+
+
+if __name__ == "__main__":
+    main()
+
+```
+
+## FILE: scripts\train_detector.py
+
+```python
+from __future__ import annotations
+
+import argparse
+
+from ultralytics import YOLO
+
+
+def main():
+
+    parser = argparse.ArgumentParser(description="Train YOLO weed detector")
+
+    parser.add_argument(
+        "--data",
+        required=True,
+    )
+
+    parser.add_argument(
+        "--model",
+        default="yolov8n.pt",
+    )
+
+    parser.add_argument(
+        "--epochs",
+        type=int,
+        default=100,
+    )
+
+    parser.add_argument(
+        "--imgsz",
+        type=int,
+        default=640,
+    )
+
+    parser.add_argument(
+        "--batch",
+        type=int,
+        default=16,
+    )
+
+    parser.add_argument(
+        "--device",
+        default="0",
+    )
+
+    parser.add_argument(
+        "--project",
+        default="runs",
+    )
+
+    parser.add_argument(
+        "--name",
+        default="weed_detector_final",
+    )
+
+    args = parser.parse_args()
+
+    model = YOLO(args.model)
+
+    model.train(
+        data=args.data,
+        epochs=args.epochs,
+        imgsz=args.imgsz,
+        batch=args.batch,
+        device=args.device,
+        project=args.project,
+        name=args.name,
+        pretrained=True,
+        patience=20,
+        workers=4,
+        cos_lr=True,
+        plots=True,
+        verbose=True,
+    )
+
+
+if __name__ == "__main__":
+    main()
+
+```
+
+## FILE: src\weedlaser\__init__.py
+
+```python
+__version__ = "1.0.0"
+
+```
+
+## FILE: src\weedlaser\config.py
+
+```python
+from __future__ import annotations
+
+from dataclasses import dataclass
+from pathlib import Path
+from typing import Any
+
+import yaml
+
+
+def load_yaml(path: str | Path) -> dict[str, Any]:
+    with open(path, "r", encoding="utf-8") as f:
+        data = yaml.safe_load(f)
+
+    if not isinstance(data, dict):
+        raise ValueError(f"Invalid configuration file: {path}")
+
+    return data
+
+
+@dataclass
+class Calibration:
+    camera_width_px: int
+    camera_height_px: int
+    pan_center_deg: float
+    tilt_center_deg: float
+    pan_deg_per_px: float
+    tilt_deg_per_px: float
+
+
+@dataclass
+class CropZone:
+    name: str
+    points: list[tuple[float, float]]
+
+
+@dataclass
+class VerificationConfig:
+    enabled: bool
+    verification_frames: int
+    confidence_drop_threshold: float
+
+
+@dataclass
+class RuntimeConfig:
+    confidence: float
+    iou: float
+    imgsz: int
+    target_mode: str
+
+    required_stable_frames: int
+    max_center_jump_px: float
+    target_timeout_s: float
+
+    minimum_confidence: float
+    require_stationary: bool
+
+    treatment_enabled: bool
+    hardware_mode: str
+
+    serial_port: str
+    baudrate: int
+
+    pan_min_deg: float
+    pan_max_deg: float
+    tilt_min_deg: float
+    tilt_max_deg: float
+
+    interlock_closed: bool
+    emergency_stop: bool
+
+    crop_exclusion_enabled: bool
+    crop_zones: list[CropZone]
+
+    verification: VerificationConfig
+
+    calibration: Calibration
+
+    logging_directory: str
+
+
+def load_runtime_config(path: str | Path) -> RuntimeConfig:
+    c = load_yaml(path)
+
+    cal = c["calibration"]
+    tracking = c["tracking"]
+    model = c["model"]
+    safety = c["safety"]
+    hardware = c["hardware"]
+    crop = c.get("crop_exclusion", {})
+    verification = c.get("verification", {})
+    logging = c.get("logging", {})
+
+    zones: list[CropZone] = []
+
+    for zone in crop.get("zones", []):
+        points = [(float(point[0]), float(point[1])) for point in zone.get("points", [])]
+
+        if len(points) >= 3:
+            zones.append(
+                CropZone(
+                    name=str(zone.get("name", "crop_zone")),
+                    points=points,
+                )
+            )
+
+    return RuntimeConfig(
+        confidence=float(model["confidence"]),
+        iou=float(model["iou"]),
+        imgsz=int(model["imgsz"]),
+        target_mode=str(model["target_mode"]),
+        required_stable_frames=int(tracking["required_stable_frames"]),
+        max_center_jump_px=float(tracking["max_center_jump_px"]),
+        target_timeout_s=float(tracking["target_timeout_s"]),
+        minimum_confidence=float(safety["minimum_confidence"]),
+        require_stationary=bool(safety["require_stationary"]),
+        treatment_enabled=bool(hardware.get("treatment_enabled", False)),
+        hardware_mode=str(hardware["mode"]),
+        serial_port=str(hardware["serial_port"]),
+        baudrate=int(hardware["baudrate"]),
+        pan_min_deg=float(hardware["pan_min_deg"]),
+        pan_max_deg=float(hardware["pan_max_deg"]),
+        tilt_min_deg=float(hardware["tilt_min_deg"]),
+        tilt_max_deg=float(hardware["tilt_max_deg"]),
+        interlock_closed=bool(safety.get("interlock_closed", False)),
+        emergency_stop=bool(safety.get("emergency_stop", True)),
+        crop_exclusion_enabled=bool(crop.get("enabled", True)),
+        crop_zones=zones,
+        verification=VerificationConfig(
+            enabled=bool(verification.get("enabled", True)),
+            verification_frames=int(verification.get("verification_frames", 5)),
+            confidence_drop_threshold=float(
+                verification.get(
+                    "confidence_drop_threshold",
+                    0.15,
+                )
+            ),
+        ),
+        calibration=Calibration(
+            camera_width_px=int(cal["camera_width_px"]),
+            camera_height_px=int(cal["camera_height_px"]),
+            pan_center_deg=float(cal["pan_center_deg"]),
+            tilt_center_deg=float(cal["tilt_center_deg"]),
+            pan_deg_per_px=float(cal["pan_deg_per_px"]),
+            tilt_deg_per_px=float(cal["tilt_deg_per_px"]),
+        ),
+        logging_directory=str(logging.get("directory", "logs")),
+    )
+
+```
+
+## FILE: src\weedlaser\crop_exclusion.py
+
+```python
+from __future__ import annotations
+
+from dataclasses import dataclass
+from typing import Iterable
+
+import cv2
+import numpy as np
+
+
+@dataclass
+class CropZone:
+    name: str
+    points: list[tuple[float, float]]
+
+
+class CropExclusion:
+    """
+    Image-space crop exclusion system.
+
+    A target is considered unsafe if its target point lies inside
+    a configured crop polygon.
+
+    This is intentionally conservative.
+
+    If crop exclusion is enabled but no zones have been calibrated,
+    the system reports that crop protection is not configured.
+    """
+
+    def __init__(
+        self,
+        enabled: bool,
+        zones: Iterable[CropZone],
+    ):
+        self.enabled = enabled
+        self.zones = list(zones)
+
+    @property
+    def configured(self) -> bool:
+        return bool(self.zones)
+
+    def target_is_in_crop(
+        self,
+        point: tuple[float, float],
+    ) -> tuple[bool, str | None]:
+        if not self.enabled:
+            return False, None
+
+        if not self.zones:
+            return False, None
+
+        x, y = point
+
+        for zone in self.zones:
+            polygon = np.array(
+                zone.points,
+                dtype=np.float32,
+            )
+
+            inside = cv2.pointPolygonTest(
+                polygon,
+                (float(x), float(y)),
+                False,
+            )
+
+            if inside >= 0:
+                return True, zone.name
+
+        return False, None
+
+    def draw(
+        self,
+        frame,
+    ):
+        if not self.enabled:
+            return frame
+
+        for zone in self.zones:
+            points = np.array(
+                zone.points,
+                dtype=np.int32,
+            ).reshape((-1, 1, 2))
+
+            cv2.polylines(
+                frame,
+                [points],
+                True,
+                (255, 0, 255),
+                2,
+            )
+
+            if zone.points:
+                x, y = zone.points[0]
+
+                cv2.putText(
+                    frame,
+                    zone.name,
+                    (int(x), int(y) - 5),
+                    cv2.FONT_HERSHEY_SIMPLEX,
+                    0.5,
+                    (255, 0, 255),
+                    2,
+                )
+
+        return frame
+
+```
+
+## FILE: src\weedlaser\detector.py
+
+```python
+from __future__ import annotations
+
+from pathlib import Path
+
+from ultralytics import YOLO
+
+from .localization import Detection
+
+
+class WeedDetector:
+    def __init__(
+        self, weights: str | Path, confidence: float = 0.55, iou: float = 0.45, imgsz: int = 640
+    ):
+        self.model = YOLO(str(weights))
+        self.confidence = confidence
+        self.iou = iou
+        self.imgsz = imgsz
+
+    def predict(self, frame):
+        results = self.model.predict(
+            source=frame,
+            conf=self.confidence,
+            iou=self.iou,
+            imgsz=self.imgsz,
+            verbose=False,
+        )
+        result = results[0]
+        names = result.names
+        detections = []
+
+        if result.boxes is None:
+            return detections
+
+        for box in result.boxes:
+            xyxy = box.xyxy[0].tolist()
+            x1, y1, x2, y2 = map(int, xyxy)
+            cls = int(box.cls[0].item())
+            conf = float(box.conf[0].item())
+            detections.append(
+                Detection(
+                    class_id=cls,
+                    class_name=str(names.get(cls, cls)),
+                    confidence=conf,
+                    bbox=(x1, y1, x2, y2),
+                )
+            )
+        return detections
+
+```
+
+## FILE: src\weedlaser\hardware.py
+
+```python
+from __future__ import annotations
+
+import time
+from dataclasses import dataclass
+
+try:
+    import serial
+except ImportError:
+    serial = None
+
+
+@dataclass
+class ServoLimits:
+    pan_min: float
+    pan_max: float
+    tilt_min: float
+    tilt_max: float
+
+
+class HardwareController:
+    def move(
+        self,
+        pan_deg: float,
+        tilt_deg: float,
+    ) -> None:
+        raise NotImplementedError
+
+    def treatment(
+        self,
+        enabled: bool,
+    ) -> None:
+        raise NotImplementedError
+
+    def close(self) -> None:
+        pass
+
+
+class SimulationController(HardwareController):
+    """
+    Safe software-only controller.
+
+    Treatment is represented by a simulated indicator.
+    """
+
+    def __init__(self):
+        self.pan = 90.0
+        self.tilt = 70.0
+        self.indicator_on = False
+
+    def move(
+        self,
+        pan_deg: float,
+        tilt_deg: float,
+    ) -> None:
+
+        self.pan = pan_deg
+        self.tilt = tilt_deg
+
+        print(f"[SIM] PAN={pan_deg:.1f} TILT={tilt_deg:.1f}")
+
+    def treatment(
+        self,
+        enabled: bool,
+    ) -> None:
+
+        self.indicator_on = enabled
+
+        print(f"[SIM] SAFE_INDICATOR={'ON' if enabled else 'OFF'}")
+
+    def close(self) -> None:
+        self.treatment(False)
+
+
+class SerialController(HardwareController):
+    """
+    Serial controller for a SAFE indicator/actuator
+    interface.
+
+    The reference implementation uses the ESP32's
+    safe indicator output only.
+    """
+
+    def __init__(
+        self,
+        port: str,
+        baudrate: int,
+        limits: ServoLimits,
+    ):
+        if serial is None:
+            raise RuntimeError("pyserial is required for serial mode.")
+
+        self.ser = serial.Serial(
+            port,
+            baudrate=baudrate,
+            timeout=1.0,
+        )
+
+        self.limits = limits
+
+        time.sleep(2.0)
+
+        self.treatment(False)
+
+    def _send(
+        self,
+        command: str,
+    ) -> None:
+
+        self.ser.write((command.strip() + "\n").encode("ascii"))
+
+    def move(
+        self,
+        pan_deg: float,
+        tilt_deg: float,
+    ) -> None:
+
+        pan_deg = max(
+            self.limits.pan_min,
+            min(
+                self.limits.pan_max,
+                pan_deg,
+            ),
+        )
+
+        tilt_deg = max(
+            self.limits.tilt_min,
+            min(
+                self.limits.tilt_max,
+                tilt_deg,
+            ),
+        )
+
+        self._send(f"PAN {pan_deg:.2f}")
+
+        self._send(f"TILT {tilt_deg:.2f}")
+
+    def treatment(
+        self,
+        enabled: bool,
+    ) -> None:
+
+        # The reference submission uses a safe indicator.
+        self._send("INDICATOR ON" if enabled else "INDICATOR OFF")
+
+    def close(self) -> None:
+        try:
+            self.treatment(False)
+            self.ser.close()
+        except Exception:
+            pass
+
+
+def create_controller(
+    config,
+) -> HardwareController:
+
+    if config.hardware_mode == "simulation":
+        return SimulationController()
+
+    if config.hardware_mode == "serial":
+        return SerialController(
+            config.serial_port,
+            config.baudrate,
+            ServoLimits(
+                config.pan_min_deg,
+                config.pan_max_deg,
+                config.tilt_min_deg,
+                config.tilt_max_deg,
+            ),
+        )
+
+    raise ValueError(f"Unsupported hardware mode: {config.hardware_mode}")
+
+```
+
+## FILE: src\weedlaser\localization.py
+
+```python
+from __future__ import annotations
+
+from dataclasses import dataclass
+from typing import Iterable
+
+import numpy as np
+
+
+@dataclass
+class Detection:
+    class_id: int
+    class_name: str
+    confidence: float
+    bbox: tuple[int, int, int, int]
+
+    @property
+    def center(self) -> tuple[float, float]:
+        x1, y1, x2, y2 = self.bbox
+
+        return (
+            (x1 + x2) / 2.0,
+            (y1 + y2) / 2.0,
+        )
+
+    @property
+    def area(self) -> float:
+        x1, y1, x2, y2 = self.bbox
+
+        return max(
+            0.0,
+            float(x2 - x1),
+        ) * max(
+            0.0,
+            float(y2 - y1),
+        )
+
+
+def bbox_center(
+    detection: Detection,
+) -> tuple[float, float]:
+    return detection.center
+
+
+def choose_target(
+    detections: Iterable[Detection],
+    frame_center: tuple[float, float],
+) -> Detection | None:
+    """
+    Select a weed target using confidence and distance
+    from the image center.
+
+    Confidence has higher priority than position.
+    """
+
+    candidates = list(detections)
+
+    if not candidates:
+        return None
+
+    fx, fy = frame_center
+
+    diagonal = max(
+        1.0,
+        (fx * fx + fy * fy) ** 0.5,
+    )
+
+    def score(
+        detection: Detection,
+    ) -> float:
+        x, y = detection.center
+
+        distance = ((x - fx) ** 2 + (y - fy) ** 2) ** 0.5
+
+        normalized_distance = min(
+            distance / diagonal,
+            1.0,
+        )
+
+        center_score = 1.0 - normalized_distance
+
+        return 0.75 * detection.confidence + 0.25 * center_score
+
+    return max(
+        candidates,
+        key=score,
+    )
+
+
+def point_to_servo(
+    point: tuple[float, float],
+    calibration,
+    pan_limits: tuple[float, float],
+    tilt_limits: tuple[float, float],
+) -> tuple[float, float]:
+    x, y = point
+
+    dx = x - calibration.camera_width_px / 2.0
+
+    dy = y - calibration.camera_height_px / 2.0
+
+    pan = calibration.pan_center_deg + dx * calibration.pan_deg_per_px
+
+    # Image y increases downwards.
+    # Invert it for conventional tilt.
+    tilt = calibration.tilt_center_deg - dy * calibration.tilt_deg_per_px
+
+    pan = float(
+        np.clip(
+            pan,
+            *pan_limits,
+        )
+    )
+
+    tilt = float(
+        np.clip(
+            tilt,
+            *tilt_limits,
+        )
+    )
+
+    return pan, tilt
+
+```
+
+## FILE: src\weedlaser\logger.py
+
+```python
+from __future__ import annotations
+
+import csv
+from datetime import datetime
+from pathlib import Path
+
+
+class EventLogger:
+    def __init__(
+        self,
+        directory: str = "logs",
+    ):
+        self.directory = Path(directory)
+
+        self.directory.mkdir(
+            parents=True,
+            exist_ok=True,
+        )
+
+        self.path = self.directory / "events.csv"
+
+        if not self.path.exists():
+            with self.path.open(
+                "w",
+                newline="",
+                encoding="utf-8",
+            ) as f:
+                csv.writer(f).writerow(
+                    [
+                        "timestamp",
+                        "class_id",
+                        "class_name",
+                        "confidence",
+                        "x",
+                        "y",
+                        "pan_deg",
+                        "tilt_deg",
+                        "stable",
+                        "crop_near_target",
+                        "crop_zone",
+                        "safety_state",
+                        "verification_state",
+                    ]
+                )
+
+    def log(
+        self,
+        *,
+        class_id: int,
+        class_name: str,
+        confidence: float,
+        x: float,
+        y: float,
+        pan: float,
+        tilt: float,
+        stable: bool,
+        crop_near_target: bool,
+        crop_zone: str | None,
+        safety_state: str,
+        verification_state: str = "NOT_RUN",
+    ) -> None:
+
+        with self.path.open(
+            "a",
+            newline="",
+            encoding="utf-8",
+        ) as f:
+            csv.writer(f).writerow(
+                [
+                    datetime.now().isoformat(timespec="seconds"),
+                    class_id,
+                    class_name,
+                    f"{confidence:.4f}",
+                    f"{x:.2f}",
+                    f"{y:.2f}",
+                    f"{pan:.2f}",
+                    f"{tilt:.2f}",
+                    stable,
+                    crop_near_target,
+                    crop_zone or "",
+                    safety_state,
+                    verification_state,
+                ]
+            )
+
+```
+
+## FILE: src\weedlaser\main.py
+
+```python
+from __future__ import annotations
+
+import argparse
+import time
+
+import cv2
+
+from .config import load_runtime_config
+from .crop_exclusion import CropExclusion
+from .detector import WeedDetector
+from .hardware import create_controller
+from .localization import (
+    choose_target,
+    point_to_servo,
+)
+from .logger import EventLogger
+from .safety import (
+    SafetyGate,
+    SafetyInputs,
+)
+from .tracker import StableTargetTracker
+from .verification import TargetVerifier
+
+
+def parse_source(
+    value: str,
+):
+    try:
+        return int(value)
+    except ValueError:
+        return value
+
+
+def main():
+    parser = argparse.ArgumentParser(description=("Vision-guided autonomous weed targeting system"))
+
+    parser.add_argument(
+        "--weights",
+        required=True,
+        help="Path to trained YOLO weights",
+    )
+
+    parser.add_argument(
+        "--source",
+        default="0",
+        help="Camera index or video path",
+    )
+
+    parser.add_argument(
+        "--config",
+        default="configs/config.yaml",
+        help="Runtime configuration",
+    )
+
+    parser.add_argument(
+        "--no-display",
+        action="store_true",
+    )
+
+    args = parser.parse_args()
+
+    cfg = load_runtime_config(args.config)
+
+    detector = WeedDetector(
+        args.weights,
+        cfg.confidence,
+        cfg.iou,
+        cfg.imgsz,
+    )
+
+    tracker = StableTargetTracker(
+        required_frames=(cfg.required_stable_frames),
+        max_jump_px=(cfg.max_center_jump_px),
+        timeout_s=(cfg.target_timeout_s),
+    )
+
+    crop_exclusion = CropExclusion(
+        enabled=(cfg.crop_exclusion_enabled),
+        zones=cfg.crop_zones,
+    )
+
+    safety = SafetyGate(
+        minimum_confidence=(cfg.minimum_confidence),
+        require_stationary=(cfg.require_stationary),
+    )
+
+    verifier = TargetVerifier(cfg.verification.confidence_drop_threshold)
+
+    hardware = create_controller(cfg)
+
+    logger = EventLogger(cfg.logging_directory)
+
+    source = parse_source(args.source)
+
+    cap = cv2.VideoCapture(source)
+
+    cap.set(
+        cv2.CAP_PROP_FRAME_WIDTH,
+        cfg.calibration.camera_width_px,
+    )
+
+    cap.set(
+        cv2.CAP_PROP_FRAME_HEIGHT,
+        cfg.calibration.camera_height_px,
+    )
+
+    if not cap.isOpened():
+        hardware.close()
+
+        raise RuntimeError(f"Could not open camera/source: {args.source}")
+
+    previous_target_confidence = None
+
+    try:
+        while True:
+            ok, frame = cap.read()
+
+            if not ok:
+                break
+
+            h, w = frame.shape[:2]
+
+            detections = detector.predict(frame)
+
+            target = choose_target(
+                detections,
+                (
+                    w / 2.0,
+                    h / 2.0,
+                ),
+            )
+
+            # Always keep the safe indicator off
+            # until all runtime conditions have passed.
+            hardware.treatment(False)
+
+            crop_exclusion.draw(frame)
+
+            safety_state = "BLOCKED"
+            verification_state = "NOT_RUN"
+
+            if target is None:
+                tracker.reset()
+
+                cv2.putText(
+                    frame,
+                    "NO TARGET | BLOCKED",
+                    (10, 30),
+                    cv2.FONT_HERSHEY_SIMPLEX,
+                    0.65,
+                    (0, 0, 255),
+                    2,
+                )
+
+            else:
+                state = tracker.update(
+                    target.center,
+                    target.confidence,
+                )
+
+                point = state.point
+
+                pan, tilt = point_to_servo(
+                    point,
+                    cfg.calibration,
+                    (
+                        cfg.pan_min_deg,
+                        cfg.pan_max_deg,
+                    ),
+                    (
+                        cfg.tilt_min_deg,
+                        cfg.tilt_max_deg,
+                    ),
+                )
+
+                hardware.move(
+                    pan,
+                    tilt,
+                )
+
+                crop_near_target, crop_zone = crop_exclusion.target_is_in_crop(point)
+
+                stable = tracker.is_stable()
+
+                safety_inputs = SafetyInputs(
+                    confidence=(target.confidence),
+                    stable=stable,
+                    crop_near_target=(crop_near_target),
+                    interlock_closed=(cfg.interlock_closed),
+                    emergency_stop=(cfg.emergency_stop),
+                    treatment_enabled=(cfg.treatment_enabled),
+                    stationary=True,
+                )
+
+                safety_state = safety.evaluate(safety_inputs).value
+
+                # Reference implementation never
+                # performs hazardous treatment.
+                #
+                # A READY state is recorded only as
+                # a software authorization state.
+                #
+                # Safe indicator activation can be
+                # enabled only in a separately validated
+                # safe hardware demonstration.
+
+                if previous_target_confidence is not None and cfg.verification.enabled:
+                    result = verifier.compare(
+                        previous_target_confidence,
+                        target.confidence,
+                    )
+
+                    verification_state = "VERIFIED" if result.verified else "NOT_VERIFIED"
+
+                previous_target_confidence = target.confidence
+
+                logger.log(
+                    class_id=target.class_id,
+                    class_name=target.class_name,
+                    confidence=target.confidence,
+                    x=point[0],
+                    y=point[1],
+                    pan=pan,
+                    tilt=tilt,
+                    stable=stable,
+                    crop_near_target=(crop_near_target),
+                    crop_zone=crop_zone,
+                    safety_state=safety_state,
+                    verification_state=(verification_state),
+                )
+
+                x1, y1, x2, y2 = target.bbox
+
+                cv2.rectangle(
+                    frame,
+                    (x1, y1),
+                    (x2, y2),
+                    (0, 255, 0),
+                    2,
+                )
+
+                cv2.circle(
+                    frame,
+                    (
+                        int(point[0]),
+                        int(point[1]),
+                    ),
+                    6,
+                    (0, 0, 255),
+                    -1,
+                )
+
+                label = f"{target.class_name} {target.confidence:.2f}"
+
+                cv2.putText(
+                    frame,
+                    label,
+                    (
+                        x1,
+                        max(20, y1 - 8),
+                    ),
+                    cv2.FONT_HERSHEY_SIMPLEX,
+                    0.55,
+                    (0, 255, 0),
+                    2,
+                )
+
+                status = f"PAN {pan:.1f} TILT {tilt:.1f} | {safety_state}"
+
+                cv2.putText(
+                    frame,
+                    status,
+                    (10, 30),
+                    cv2.FONT_HERSHEY_SIMPLEX,
+                    0.65,
+                    (255, 255, 255),
+                    2,
+                )
+
+                if crop_near_target:
+                    cv2.putText(
+                        frame,
+                        ("CROP ZONE | TREATMENT BLOCKED"),
+                        (10, 60),
+                        cv2.FONT_HERSHEY_SIMPLEX,
+                        0.6,
+                        (255, 0, 255),
+                        2,
+                    )
+
+                elif not stable:
+                    cv2.putText(
+                        frame,
+                        "TARGET UNSTABLE",
+                        (10, 60),
+                        cv2.FONT_HERSHEY_SIMPLEX,
+                        0.6,
+                        (0, 165, 255),
+                        2,
+                    )
+
+                else:
+                    cv2.putText(
+                        frame,
+                        "TARGET STABLE",
+                        (10, 60),
+                        cv2.FONT_HERSHEY_SIMPLEX,
+                        0.6,
+                        (0, 255, 0),
+                        2,
+                    )
+
+            # Absolute final output state.
+            # This guarantees safe shutdown of the
+            # treatment/indicator interface.
+            hardware.treatment(False)
+
+            if not args.no_display:
+                cv2.imshow(
+                    "Autonomous Weed Removal - SAFE MODE",
+                    frame,
+                )
+
+                key = cv2.waitKey(1) & 0xFF
+
+                if key == ord("q"):
+                    break
+
+            time.sleep(0.001)
+
+    finally:
+        hardware.treatment(False)
+
+        hardware.close()
+
+        cap.release()
+
+        cv2.destroyAllWindows()
+
+
+if __name__ == "__main__":
+    main()
+
+```
+
+## FILE: src\weedlaser\safety.py
+
+```python
+from __future__ import annotations
+
+from dataclasses import dataclass
+from enum import Enum
+
+
+class SafetyState(str, Enum):
+    BLOCKED = "BLOCKED"
+    READY = "READY"
+
+
+@dataclass
+class SafetyInputs:
+    confidence: float
+    stable: bool
+    crop_near_target: bool
+    interlock_closed: bool
+    emergency_stop: bool
+    treatment_enabled: bool
+    stationary: bool
+
+
+class SafetyGate:
+    """
+    Software safety gate.
+
+    This gate never replaces physical safety systems.
+
+    A READY state means that all configured software conditions
+    have passed. It does not directly authorize hazardous actuation.
+    """
+
+    def __init__(
+        self,
+        minimum_confidence: float,
+        require_stationary: bool = True,
+    ):
+        self.minimum_confidence = minimum_confidence
+        self.require_stationary = require_stationary
+
+    def evaluate(
+        self,
+        inputs: SafetyInputs,
+    ) -> SafetyState:
+
+        if inputs.emergency_stop:
+            return SafetyState.BLOCKED
+
+        if not inputs.interlock_closed:
+            return SafetyState.BLOCKED
+
+        if not inputs.treatment_enabled:
+            return SafetyState.BLOCKED
+
+        if inputs.confidence < self.minimum_confidence:
+            return SafetyState.BLOCKED
+
+        if not inputs.stable:
+            return SafetyState.BLOCKED
+
+        if inputs.crop_near_target:
+            return SafetyState.BLOCKED
+
+        if self.require_stationary and not inputs.stationary:
+            return SafetyState.BLOCKED
+
+        return SafetyState.READY
+
+    def authorize(
+        self,
+        inputs: SafetyInputs,
+    ) -> bool:
+        return self.evaluate(inputs) == SafetyState.READY
+
+```
+
+## FILE: src\weedlaser\tracker.py
+
+```python
+from __future__ import annotations
+
+from collections import deque
+from dataclasses import dataclass
+from math import hypot
+import time
+
+
+@dataclass
+class TrackState:
+    point: tuple[float, float]
+    confidence: float
+    frames: int
+    last_seen: float
+
+
+class StableTargetTracker:
+    def __init__(self, required_frames: int = 3, max_jump_px: float = 60.0, timeout_s: float = 1.0):
+        self.required_frames = required_frames
+        self.max_jump_px = max_jump_px
+        self.timeout_s = timeout_s
+        self._history = deque(maxlen=required_frames)
+        self.state: TrackState | None = None
+
+    def update(self, point: tuple[float, float], confidence: float) -> TrackState:
+        now = time.monotonic()
+
+        if self.state and now - self.state.last_seen > self.timeout_s:
+            self._history.clear()
+
+        if self._history:
+            last = self._history[-1]
+            if hypot(point[0] - last[0], point[1] - last[1]) > self.max_jump_px:
+                self._history.clear()
+
+        self._history.append(point)
+        avg_x = sum(p[0] for p in self._history) / len(self._history)
+        avg_y = sum(p[1] for p in self._history) / len(self._history)
+
+        self.state = TrackState(
+            point=(avg_x, avg_y),
+            confidence=confidence,
+            frames=len(self._history),
+            last_seen=now,
+        )
+        return self.state
+
+    def is_stable(self) -> bool:
+        return self.state is not None and self.state.frames >= self.required_frames
+
+    def reset(self) -> None:
+        self._history.clear()
+        self.state = None
+
+```
+
+## FILE: src\weedlaser\verification.py
+
+```python
+from __future__ import annotations
+
+from dataclasses import dataclass
+
+
+@dataclass
+class VerificationResult:
+    before_confidence: float
+    after_confidence: float
+    confidence_change: float
+    verified: bool
+    reason: str
+
+
+class TargetVerifier:
+    """
+    Safe post-action verification.
+
+    This does not claim that a weed was physically destroyed.
+    It only determines whether the visual target confidence
+    changed sufficiently after a safe simulated action.
+    """
+
+    def __init__(
+        self,
+        confidence_drop_threshold: float = 0.15,
+    ):
+        self.threshold = confidence_drop_threshold
+
+    def compare(
+        self,
+        before_confidence: float,
+        after_confidence: float,
+    ) -> VerificationResult:
+
+        change = round(before_confidence - after_confidence, 6)
+
+        verified = change >= self.threshold
+
+        if verified:
+            reason = "Target confidence decreased beyond the configured threshold."
+        else:
+            reason = "Target confidence did not decrease sufficiently."
+
+        return VerificationResult(
+            before_confidence=before_confidence,
+            after_confidence=after_confidence,
+            confidence_change=change,
+            verified=verified,
+            reason=reason,
+        )
+
+```
+
+## FILE: tests\test_core.py
+
+```python
+from weedlaser.config import Calibration
+from weedlaser.crop_exclusion import CropExclusion, CropZone
+from weedlaser.localization import (
+    Detection,
+    choose_target,
+    point_to_servo,
+)
+from weedlaser.safety import (
+    SafetyGate,
+    SafetyInputs,
+    SafetyState,
+)
+from weedlaser.tracker import StableTargetTracker
+from weedlaser.verification import TargetVerifier
+
+
+def test_detection_center():
+
+    detection = Detection(
+        0,
+        "weed",
+        0.9,
+        (10, 20, 30, 40),
+    )
+
+    assert detection.center == (
+        20.0,
+        30.0,
+    )
+
+
+def test_detection_area():
+
+    detection = Detection(
+        0,
+        "weed",
+        0.9,
+        (10, 20, 30, 40),
+    )
+
+    assert detection.area == 400
+
+
+def test_target_selection():
+
+    detections = [
+        Detection(
+            0,
+            "weed_a",
+            0.60,
+            (0, 0, 50, 50),
+        ),
+        Detection(
+            1,
+            "weed_b",
+            0.90,
+            (300, 200, 350, 250),
+        ),
+    ]
+
+    target = choose_target(
+        detections,
+        (320, 240),
+    )
+
+    assert target is not None
+    assert target.class_name == "weed_b"
+
+
+def test_tracker_stability():
+
+    tracker = StableTargetTracker(
+        required_frames=3,
+        max_jump_px=20,
+    )
+
+    tracker.update(
+        (100, 100),
+        0.9,
+    )
+
+    tracker.update(
+        (102, 101),
+        0.9,
+    )
+
+    tracker.update(
+        (101, 100),
+        0.9,
+    )
+
+    assert tracker.is_stable()
+
+
+def test_tracker_jump_resets_history():
+
+    tracker = StableTargetTracker(
+        required_frames=3,
+        max_jump_px=10,
+    )
+
+    tracker.update(
+        (100, 100),
+        0.9,
+    )
+
+    tracker.update(
+        (101, 101),
+        0.9,
+    )
+
+    tracker.update(
+        (300, 300),
+        0.9,
+    )
+
+    assert not tracker.is_stable()
+
+
+def test_tracker_timeout():
+
+    tracker = StableTargetTracker(
+        required_frames=3,
+        max_jump_px=20,
+        timeout_s=0.01,
+    )
+
+    tracker.update(
+        (100, 100),
+        0.9,
+    )
+
+    import time
+
+    time.sleep(0.02)
+
+    tracker.update(
+        (101, 101),
+        0.9,
+    )
+
+    assert not tracker.is_stable()
+
+
+def test_servo_mapping_center():
+
+    calibration = Calibration(
+        640,
+        480,
+        90,
+        70,
+        0.1,
+        0.1,
+    )
+
+    pan, tilt = point_to_servo(
+        (320, 240),
+        calibration,
+        (20, 160),
+        (20, 120),
+    )
+
+    assert pan == 90
+    assert tilt == 70
+
+
+def test_servo_mapping_clips():
+
+    calibration = Calibration(
+        640,
+        480,
+        90,
+        70,
+        0.1,
+        0.1,
+    )
+
+    pan, tilt = point_to_servo(
+        (5000, -5000),
+        calibration,
+        (20, 160),
+        (20, 120),
+    )
+
+    assert pan == 160
+    assert tilt == 120
+
+
+def test_crop_zone_detection():
+
+    zone = CropZone(
+        name="crop_1",
+        points=[
+            (0, 0),
+            (100, 0),
+            (100, 100),
+            (0, 100),
+        ],
+    )
+
+    exclusion = CropExclusion(
+        enabled=True,
+        zones=[zone],
+    )
+
+    inside, name = exclusion.target_is_in_crop((50, 50))
+
+    assert inside
+    assert name == "crop_1"
+
+
+def test_crop_zone_outside():
+
+    zone = CropZone(
+        name="crop_1",
+        points=[
+            (0, 0),
+            (100, 0),
+            (100, 100),
+            (0, 100),
+        ],
+    )
+
+    exclusion = CropExclusion(
+        enabled=True,
+        zones=[zone],
+    )
+
+    inside, name = exclusion.target_is_in_crop((200, 200))
+
+    assert not inside
+    assert name is None
+
+
+def test_safety_blocks_when_disabled():
+
+    gate = SafetyGate(0.55)
+
+    inputs = SafetyInputs(
+        confidence=0.95,
+        stable=True,
+        crop_near_target=False,
+        interlock_closed=True,
+        emergency_stop=False,
+        treatment_enabled=False,
+        stationary=True,
+    )
+
+    assert gate.evaluate(inputs) == SafetyState.BLOCKED
+
+
+def test_safety_blocks_unstable():
+
+    gate = SafetyGate(0.55)
+
+    inputs = SafetyInputs(
+        confidence=0.95,
+        stable=False,
+        crop_near_target=False,
+        interlock_closed=True,
+        emergency_stop=False,
+        treatment_enabled=True,
+        stationary=True,
+    )
+
+    assert gate.evaluate(inputs) == SafetyState.BLOCKED
+
+
+def test_safety_blocks_crop():
+
+    gate = SafetyGate(0.55)
+
+    inputs = SafetyInputs(
+        confidence=0.95,
+        stable=True,
+        crop_near_target=True,
+        interlock_closed=True,
+        emergency_stop=False,
+        treatment_enabled=True,
+        stationary=True,
+    )
+
+    assert gate.evaluate(inputs) == SafetyState.BLOCKED
+
+
+def test_safety_blocks_estop():
+
+    gate = SafetyGate(0.55)
+
+    inputs = SafetyInputs(
+        confidence=0.95,
+        stable=True,
+        crop_near_target=False,
+        interlock_closed=True,
+        emergency_stop=True,
+        treatment_enabled=True,
+        stationary=True,
+    )
+
+    assert gate.evaluate(inputs) == SafetyState.BLOCKED
+
+
+def test_safety_ready():
+
+    gate = SafetyGate(0.55)
+
+    inputs = SafetyInputs(
+        confidence=0.95,
+        stable=True,
+        crop_near_target=False,
+        interlock_closed=True,
+        emergency_stop=False,
+        treatment_enabled=True,
+        stationary=True,
+    )
+
+    assert gate.evaluate(inputs) == SafetyState.READY
+
+
+def test_verification_success():
+
+    verifier = TargetVerifier(confidence_drop_threshold=0.15)
+
+    result = verifier.compare(
+        0.90,
+        0.60,
+    )
+
+    assert result.verified
+    assert result.confidence_change == 0.30
+
+
+def test_verification_failure():
+
+    verifier = TargetVerifier(confidence_drop_threshold=0.15)
+
+    result = verifier.compare(
+        0.90,
+        0.85,
+    )
+
+    assert not result.verified
 
 ```
 ```
