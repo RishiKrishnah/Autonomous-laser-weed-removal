@@ -1,57 +1,63 @@
 # System Architecture
 
 ```text
-                    RGB CAMERA
-                        |
-                        v
-              +-------------------+
-              | YOLO Weed Detector |
-              +---------+---------+
-                        |
-                 boxes + classes
-                        |
-                        v
-              +-------------------+
-              | Target Localizer  |
-              | bbox/stem point   |
-              +---------+---------+
-                        |
-                        v
-              +-------------------+
-              | Temporal Tracker  |
-              +---------+---------+
-                        |
-                        v
-              +-------------------+
-              | Safety State Gate |
-              +---------+---------+
-                        |
-                        v
-              +-------------------+
-              | Pixel -> Pan/Tilt |
-              | Calibration       |
-              +---------+---------+
-                        |
-                        v
-                 ESP32 / MCU
-                   /                         /                      PAN SERVO    TILT SERVO
-                        |
-                        v
-                 SAFE TREATMENT
-                    INTERFACE
-                        |
-                        v
-                   RE-IMAGE
-                        |
-                        v
-                     LOG
-```
-
-## Design principles
-
-- Detection and actuation are separated.
-- Treatment is disabled by default.
-- A target must be stable before treatment is permitted.
-- Crop proximity is checked before treatment.
-- Hardware interlocks are expected to be independent of the ML model.
-- A safe indicator is used for early testing.
+                         RGB CAMERA
+                             |
+                             v
+                    +-------------------+
+                    |   YOLO Detector   |
+                    +---------+---------+
+                              |
+                         detections
+                              |
+                              v
+                    +-------------------+
+                    | Target Selector   |
+                    +---------+---------+
+                              |
+                              v
+                    +-------------------+
+                    | Temporal Tracker  |
+                    +---------+---------+
+                              |
+                         stable target
+                              |
+                              v
+                    +-------------------+
+                    | Crop Exclusion    |
+                    | Safety Zones      |
+                    +---------+---------+
+                              |
+                              v
+                    +-------------------+
+                    | Target Localizer  |
+                    | BBox Center       |
+                    +---------+---------+
+                              |
+                              v
+                    +-------------------+
+                    | Pixel -> Pan/Tilt |
+                    | Calibration      |
+                    +---------+---------+
+                              |
+                              v
+                    +-------------------+
+                    | Software Safety   |
+                    | Gate              |
+                    +---------+---------+
+                              |
+                    +---------+---------+
+                    |                   |
+                  BLOCKED             READY
+                    |                   |
+                    v                   v
+                  SAFE OFF       SAFE INDICATOR
+                                        |
+                                        v
+                                  RE-IMAGE
+                                        |
+                                        v
+                                  VERIFICATION
+                                        |
+                                        v
+                                      LOG

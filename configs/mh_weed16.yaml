@@ -1,5 +1,16 @@
-# MH-Weed16 Version 1 class map.
-# Use this as a reference for dataset conversion and reporting.
+# MH-Weed16 Version 1
+#
+# Current project model:
+# 15-class subset used for the prepared YOLO dataset.
+#
+# Punarnava (class 15) is part of the original MH-Weed16 dataset
+# but is not included in the current prepared training dataset.
+
+dataset:
+  source: MH-Weed16
+  version: 1
+  implemented_classes: 15
+
 names:
   0: Kena
   1: Lavhala
@@ -16,4 +27,3 @@ names:
   12: Sicklepod
   13: Harali
   14: Dwarf_cassia
-  15: Punarnava

@@ -13,6 +13,7 @@ venv/
 # Training outputs
 runs/detect/runs/weed_predictions_test
 runs/detect/runs/weed_predictions_test-2
+runs/detect/predict
 
 wandb/
 mlruns/

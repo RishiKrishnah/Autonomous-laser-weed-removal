@@ -12,39 +12,72 @@ model:
 
 tracking:
   enabled: true
-  required_stable_frames: 3
+  required_stable_frames: 5
   max_center_jump_px: 60
   target_timeout_s: 1.0
+
+crop_exclusion:
+  enabled: true
+
+  # Polygon points are image coordinates.
+  #
+  # Example:
+  # zones:
+  #   - name: crop_zone_1
+  #     points:
+  #       - [0, 0]
+  #       - [200, 0]
+  #       - [200, 150]
+  #       - [0, 150]
+  #
+  # Empty zones mean that no crop exclusion polygon has been
+  # calibrated yet.
+  zones: []
 
 safety:
   require_stable_target: true
   minimum_confidence: 0.55
-  crop_exclusion_px: 45
   require_stationary: true
+
+  # Runtime software safety.
+  emergency_stop: true
   interlock_closed: false
-  emergency_stop: false
+
+  # Must remain false for the submitted reference implementation.
+  treatment_enabled: false
 
 hardware:
   mode: simulation
-  treatment_enabled: false
+
+  # Serial configuration is retained for safe indicator hardware.
   serial_port: COM3
   baudrate: 115200
+
   pan_min_deg: 20
   pan_max_deg: 160
+
   tilt_min_deg: 20
   tilt_max_deg: 120
+
   pan_center_deg: 90
   tilt_center_deg: 70
 
 calibration:
-  # Approximate empirical mapping for an initial tabletop prototype.
-  # Replace these values after calibration.
   camera_width_px: 640
   camera_height_px: 480
+
   pan_center_deg: 90
   tilt_center_deg: 70
+
+  # Initial empirical calibration.
+  # Replace after physical calibration experiments.
   pan_deg_per_px: 0.10
   tilt_deg_per_px: 0.10
+
+verification:
+  enabled: true
+  verification_frames: 5
+  confidence_drop_threshold: 0.15
 
 logging:
   directory: logs

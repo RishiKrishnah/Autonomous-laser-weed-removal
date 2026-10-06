@@ -18,10 +18,17 @@ class ServoLimits:
 
 
 class HardwareController:
-    def move(self, pan_deg: float, tilt_deg: float) -> None:
+    def move(
+        self,
+        pan_deg: float,
+        tilt_deg: float,
+    ) -> None:
         raise NotImplementedError
 
-    def treatment(self, enabled: bool) -> None:
+    def treatment(
+        self,
+        enabled: bool,
+    ) -> None:
         raise NotImplementedError
 
     def close(self) -> None:
@@ -29,40 +36,111 @@ class HardwareController:
 
 
 class SimulationController(HardwareController):
+    """
+    Safe software-only controller.
+
+    Treatment is represented by a simulated indicator.
+    """
+
     def __init__(self):
         self.pan = 90.0
         self.tilt = 70.0
-        self.treatment_on = False
+        self.indicator_on = False
 
-    def move(self, pan_deg: float, tilt_deg: float) -> None:
-        self.pan, self.tilt = pan_deg, tilt_deg
+    def move(
+        self,
+        pan_deg: float,
+        tilt_deg: float,
+    ) -> None:
+
+        self.pan = pan_deg
+        self.tilt = tilt_deg
+
         print(f"[SIM] PAN={pan_deg:.1f} TILT={tilt_deg:.1f}")
 
-    def treatment(self, enabled: bool) -> None:
-        self.treatment_on = enabled
-        print(f"[SIM] SAFE_TREATMENT={'ON' if enabled else 'OFF'}")
+    def treatment(
+        self,
+        enabled: bool,
+    ) -> None:
+
+        self.indicator_on = enabled
+
+        print(f"[SIM] SAFE_INDICATOR={'ON' if enabled else 'OFF'}")
+
+    def close(self) -> None:
+        self.treatment(False)
 
 
 class SerialController(HardwareController):
-    def __init__(self, port: str, baudrate: int, limits: ServoLimits):
+    """
+    Serial controller for a SAFE indicator/actuator
+    interface.
+
+    The reference implementation uses the ESP32's
+    safe indicator output only.
+    """
+
+    def __init__(
+        self,
+        port: str,
+        baudrate: int,
+        limits: ServoLimits,
+    ):
         if serial is None:
-            raise RuntimeError("pyserial is required for serial hardware mode.")
-        self.ser = serial.Serial(port, baudrate=baudrate, timeout=1.0)
+            raise RuntimeError("pyserial is required for serial mode.")
+
+        self.ser = serial.Serial(
+            port,
+            baudrate=baudrate,
+            timeout=1.0,
+        )
+
         self.limits = limits
+
         time.sleep(2.0)
+
         self.treatment(False)
 
-    def _send(self, command: str) -> None:
+    def _send(
+        self,
+        command: str,
+    ) -> None:
+
         self.ser.write((command.strip() + "\n").encode("ascii"))
 
-    def move(self, pan_deg: float, tilt_deg: float) -> None:
-        pan_deg = max(self.limits.pan_min, min(self.limits.pan_max, pan_deg))
-        tilt_deg = max(self.limits.tilt_min, min(self.limits.tilt_max, tilt_deg))
+    def move(
+        self,
+        pan_deg: float,
+        tilt_deg: float,
+    ) -> None:
+
+        pan_deg = max(
+            self.limits.pan_min,
+            min(
+                self.limits.pan_max,
+                pan_deg,
+            ),
+        )
+
+        tilt_deg = max(
+            self.limits.tilt_min,
+            min(
+                self.limits.tilt_max,
+                tilt_deg,
+            ),
+        )
+
         self._send(f"PAN {pan_deg:.2f}")
+
         self._send(f"TILT {tilt_deg:.2f}")
 
-    def treatment(self, enabled: bool) -> None:
-        self._send("TREAT ON" if enabled else "TREAT OFF")
+    def treatment(
+        self,
+        enabled: bool,
+    ) -> None:
+
+        # The reference submission uses a safe indicator.
+        self._send("INDICATOR ON" if enabled else "INDICATOR OFF")
 
     def close(self) -> None:
         try:
@@ -72,7 +150,10 @@ class SerialController(HardwareController):
             pass
 
 
-def create_controller(config) -> HardwareController:
+def create_controller(
+    config,
+) -> HardwareController:
+
     if config.hardware_mode == "simulation":
         return SimulationController()
 

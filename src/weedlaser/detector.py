@@ -8,7 +8,9 @@ from .localization import Detection
 
 
 class WeedDetector:
-    def __init__(self, weights: str | Path, confidence: float = 0.55, iou: float = 0.45, imgsz: int = 640):
+    def __init__(
+        self, weights: str | Path, confidence: float = 0.55, iou: float = 0.45, imgsz: int = 640
+    ):
         self.model = YOLO(str(weights))
         self.confidence = confidence
         self.iou = iou
