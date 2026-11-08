@@ -91,18 +91,36 @@ def point_to_servo(
     calibration,
     pan_limits: tuple[float, float],
     tilt_limits: tuple[float, float],
+    frame_size: tuple[int, int] | None = None,
+    fitted=None,
 ) -> tuple[float, float]:
-    x, y = point
+    """
+    Uses the fitted ServoCalibration when available
+    (scripts/calibrate_servos.py), otherwise the linear
+    deg-per-pixel estimate around the actual frame centre.
+    """
 
-    dx = x - calibration.camera_width_px / 2.0
+    if frame_size is None:
+        frame_size = (
+            calibration.camera_width_px,
+            calibration.camera_height_px,
+        )
 
-    dy = y - calibration.camera_height_px / 2.0
+    if fitted is not None:
+        pan, tilt = fitted.predict(point, frame_size)
 
-    pan = calibration.pan_center_deg + dx * calibration.pan_deg_per_px
+    else:
+        x, y = point
 
-    # Image y increases downwards.
-    # Invert it for conventional tilt.
-    tilt = calibration.tilt_center_deg - dy * calibration.tilt_deg_per_px
+        dx = x - frame_size[0] / 2.0
+
+        dy = y - frame_size[1] / 2.0
+
+        pan = calibration.pan_center_deg + dx * calibration.pan_deg_per_px
+
+        # Image y increases downwards.
+        # Invert it for conventional tilt.
+        tilt = calibration.tilt_center_deg - dy * calibration.tilt_deg_per_px
 
     pan = float(
         np.clip(

@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import argparse
 import time
+from pathlib import Path
 
 import cv2
 
@@ -18,6 +19,7 @@ from .safety import (
     SafetyGate,
     SafetyInputs,
 )
+from .servo_calibration import ServoCalibration
 from .tracker import StableTargetTracker
 from .verification import TargetVerifier
 
@@ -60,6 +62,19 @@ def main():
     args = parser.parse_args()
 
     cfg = load_runtime_config(args.config)
+
+    fitted = None
+
+    if cfg.calibration.file and Path(cfg.calibration.file).exists():
+        fitted = ServoCalibration.load(cfg.calibration.file)
+
+        print(
+            f"[CALIBRATION] Using {cfg.calibration.file} "
+            f"({len(fitted.samples)} points, RMS {fitted.rms_deg:.2f} deg)"
+        )
+
+    else:
+        print("[CALIBRATION] No fitted calibration found; run scripts/calibrate_servos.py")
 
     detector = WeedDetector(
         args.weights,
@@ -130,10 +145,6 @@ def main():
                 ),
             )
 
-            # Always keep the safe indicator off
-            # until all runtime conditions have passed.
-            hardware.treatment(False)
-
             crop_exclusion.draw(frame)
 
             safety_state = "BLOCKED"
@@ -171,6 +182,8 @@ def main():
                         cfg.tilt_min_deg,
                         cfg.tilt_max_deg,
                     ),
+                    frame_size=(w, h),
+                    fitted=fitted,
                 )
 
                 hardware.move(
@@ -194,15 +207,11 @@ def main():
 
                 safety_state = safety.evaluate(safety_inputs).value
 
-                # Reference implementation never
-                # performs hazardous treatment.
-                #
-                # A READY state is recorded only as
-                # a software authorization state.
-                #
-                # Safe indicator activation can be
-                # enabled only in a separately validated
-                # safe hardware demonstration.
+                # READY only when every software condition
+                # passes (treatment_enabled, interlock, no
+                # E-stop, confidence, stability, crop zones).
+                # The firmware applies its own watchdog,
+                # max on-time and E-stop on top of this.
 
                 if previous_target_confidence is not None and cfg.verification.enabled:
                     result = verifier.compare(
@@ -310,10 +319,23 @@ def main():
                         2,
                     )
 
-            # Absolute final output state.
-            # This guarantees safe shutdown of the
-            # treatment/indicator interface.
-            hardware.treatment(False)
+            # One laser command per frame. It is also the
+            # firmware watchdog heartbeat: if this loop
+            # stalls, the laser switches itself off.
+            fire = safety_state == "READY"
+
+            hardware.treatment(fire)
+
+            if fire:
+                cv2.putText(
+                    frame,
+                    "LASER ON",
+                    (10, 90),
+                    cv2.FONT_HERSHEY_SIMPLEX,
+                    0.7,
+                    (0, 0, 255),
+                    2,
+                )
 
             if not args.no_display:
                 cv2.imshow(

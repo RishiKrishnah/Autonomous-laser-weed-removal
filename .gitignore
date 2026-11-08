@@ -39,3 +39,11 @@ logs/
 # OS
 .DS_Store
 Thumbs.db
+
+# Local tool settings
+.ultralytics/
+.claude/
+.env
+node_modules/
+__pycache__/
+.DS_Store

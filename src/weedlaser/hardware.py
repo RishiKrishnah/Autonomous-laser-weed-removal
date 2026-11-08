@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+import glob
+import os
 import time
 from dataclasses import dataclass
 
@@ -65,7 +67,7 @@ class SimulationController(HardwareController):
 
         self.indicator_on = enabled
 
-        print(f"[SIM] SAFE_INDICATOR={'ON' if enabled else 'OFF'}")
+        print(f"[SIM] LASER={'ON' if enabled else 'OFF'}")
 
     def close(self) -> None:
         self.treatment(False)
@@ -73,11 +75,12 @@ class SimulationController(HardwareController):
 
 class SerialController(HardwareController):
     """
-    Serial controller for a SAFE indicator/actuator
-    interface.
+    Serial controller for the Arduino pan/tilt laser
+    firmware (firmware/arduino/pan_tilt_laser).
 
-    The reference implementation uses the ESP32's
-    safe indicator output only.
+    The firmware switches the laser off by itself if
+    commands stop arriving, so treatment() must be
+    called every frame.
     """
 
     def __init__(
@@ -108,6 +111,10 @@ class SerialController(HardwareController):
 
         self.ser.write((command.strip() + "\n").encode("ascii"))
 
+        # Discard firmware replies so the OS buffer never fills up.
+        if self.ser.in_waiting:
+            self.ser.reset_input_buffer()
+
     def move(
         self,
         pan_deg: float,
@@ -130,17 +137,14 @@ class SerialController(HardwareController):
             ),
         )
 
-        self._send(f"PAN {pan_deg:.2f}")
-
-        self._send(f"TILT {tilt_deg:.2f}")
+        self._send(f"MOVE {pan_deg:.2f} {tilt_deg:.2f}")
 
     def treatment(
         self,
         enabled: bool,
     ) -> None:
 
-        # The reference submission uses a safe indicator.
-        self._send("INDICATOR ON" if enabled else "INDICATOR OFF")
+        self._send("LASER ON" if enabled else "LASER OFF")
 
     def close(self) -> None:
         try:
@@ -148,6 +152,32 @@ class SerialController(HardwareController):
             self.ser.close()
         except Exception:
             pass
+
+
+def resolve_serial_port(
+    candidates: str | list[str],
+) -> str:
+    """
+    Return the first existing port from a name, a list
+    of names, or glob patterns like /dev/cu.usbmodem*.
+    """
+
+    if isinstance(candidates, str):
+        candidates = [candidates]
+
+    for candidate in candidates:
+        if any(ch in candidate for ch in "*?["):
+            matches = sorted(glob.glob(candidate))
+
+            if matches:
+                return matches[0]
+
+        elif not candidate.startswith("/dev/") or os.path.exists(candidate):
+            return candidate
+
+    raise RuntimeError(
+        f"No serial port found (tried {candidates}). Is the Arduino plugged in?"
+    )
 
 
 def create_controller(
@@ -158,8 +188,12 @@ def create_controller(
         return SimulationController()
 
     if config.hardware_mode == "serial":
+        port = resolve_serial_port(config.serial_port)
+
+        print(f"[SERIAL] Using {port}")
+
         return SerialController(
-            config.serial_port,
+            port,
             config.baudrate,
             ServoLimits(
                 config.pan_min_deg,
