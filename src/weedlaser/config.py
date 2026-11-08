@@ -25,6 +25,7 @@ class Calibration:
     tilt_center_deg: float
     pan_deg_per_px: float
     tilt_deg_per_px: float
+    file: str | None = None
 
 
 @dataclass
@@ -57,7 +58,7 @@ class RuntimeConfig:
     treatment_enabled: bool
     hardware_mode: str
 
-    serial_port: str
+    serial_port: str | list[str]
     baudrate: int
 
     pan_min_deg: float
@@ -113,9 +114,18 @@ def load_runtime_config(path: str | Path) -> RuntimeConfig:
         target_timeout_s=float(tracking["target_timeout_s"]),
         minimum_confidence=float(safety["minimum_confidence"]),
         require_stationary=bool(safety["require_stationary"]),
-        treatment_enabled=bool(hardware.get("treatment_enabled", False)),
+        treatment_enabled=bool(
+            safety.get(
+                "treatment_enabled",
+                hardware.get("treatment_enabled", False),
+            )
+        ),
         hardware_mode=str(hardware["mode"]),
-        serial_port=str(hardware["serial_port"]),
+        serial_port=(
+            [str(p) for p in hardware["serial_port"]]
+            if isinstance(hardware["serial_port"], list)
+            else str(hardware["serial_port"])
+        ),
         baudrate=int(hardware["baudrate"]),
         pan_min_deg=float(hardware["pan_min_deg"]),
         pan_max_deg=float(hardware["pan_max_deg"]),
@@ -142,6 +152,7 @@ def load_runtime_config(path: str | Path) -> RuntimeConfig:
             tilt_center_deg=float(cal["tilt_center_deg"]),
             pan_deg_per_px=float(cal["pan_deg_per_px"]),
             tilt_deg_per_px=float(cal["tilt_deg_per_px"]),
+            file=cal.get("file"),
         ),
         logging_directory=str(logging.get("directory", "logs")),
     )

@@ -40,17 +40,21 @@ safety:
   require_stationary: true
 
   # Runtime software safety.
-  emergency_stop: true
-  interlock_closed: false
+  emergency_stop: false
+  interlock_closed: true
 
   # Must remain false for the submitted reference implementation.
-  treatment_enabled: false
+  treatment_enabled: true
 
 hardware:
-  mode: simulation
+  mode: serial
 
   # Serial configuration is retained for safe indicator hardware.
-  serial_port: COM3
+  # First one that exists is used.
+  serial_port:
+    - /dev/cu.usbmodem1201
+    - /dev/cu.usbmodem11201
+    - /dev/cu.usbmodem*
   baudrate: 115200
 
   pan_min_deg: 20
@@ -69,8 +73,11 @@ calibration:
   pan_center_deg: 90
   tilt_center_deg: 70
 
-  # Initial empirical calibration.
-  # Replace after physical calibration experiments.
+  # Fitted pixel -> servo mapping written by scripts/calibrate_servos.py.
+  # When this file exists it replaces the linear estimate below.
+  file: configs/servo_calibration.json
+
+  # Linear fallback, only used without the fitted file.
   pan_deg_per_px: 0.10
   tilt_deg_per_px: 0.10
 
